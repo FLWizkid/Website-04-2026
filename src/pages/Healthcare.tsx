@@ -114,11 +114,11 @@ export default function Healthcare() {
         <div className="grid gap-5 md:grid-cols-3">
           {segments.map(({ icon: Icon, title, body }) => (
             <div key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient-soft">
-                <Icon className="h-5 w-5 text-brand-blue" aria-hidden />
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10">
+                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
@@ -133,26 +133,26 @@ export default function Healthcare() {
         <div className="grid gap-5 md:grid-cols-3">
           {outcomes.map(({ icon: Icon, title, body }) => (
             <div key={title} className="card h-full">
-              <Icon className="h-6 w-6 text-brand-blue" aria-hidden />
+              <Icon className="h-6 w-6 text-brand-cyan" aria-hidden />
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-8 md:p-10">
+        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
           <p className="eyebrow">Hospital cohort example</p>
           <h3 className="mt-3 text-2xl font-bold text-brand-ink">
             Up to <span className="gradient-text">$293k in annual benefit</span> modeled for a 100-nurse cohort
           </h3>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-2xl text-brand-muted">
             Projected 4.0x ROI with payback around 1.3 months. Based on modeled
             reductions in turnover, training hours, and adverse event risk. Full
             assumptions on our ROI page.
           </p>
           <Link
             to="/roi"
-            className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:text-brand-orange"
+            className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:text-brand-amber"
           >
             See the full ROI breakdown <ArrowRight className="h-4 w-4" />
           </Link>
@@ -168,19 +168,19 @@ export default function Healthcare() {
           {tiers.map((t) => (
             <div key={t.title} className="card h-full">
               <h3 className="text-lg font-semibold text-brand-ink">{t.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{t.body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{t.body}</p>
               <ul className="mt-4 space-y-2 text-sm">
                 {t.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-brand-blue" />
-                    <span className="text-slate-700">{b}</span>
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-brand-cyan" />
+                    <span className="text-slate-300">{b}</span>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-        <p className="mt-6 text-sm text-slate-500">
+        <p className="mt-6 text-sm text-brand-muted">
           Add-ons available: {addOns.join(" • ")}.
         </p>
       </Section>
@@ -193,14 +193,14 @@ export default function Healthcare() {
         <div className="grid gap-5 md:grid-cols-2">
           <div className="card">
             <h3 className="text-lg font-semibold text-brand-ink">Structure</h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               Baseline → post outcomes, faculty time saved, error reduction, and
               learner competency gains. Conversion incentives on success.
             </p>
           </div>
           <div className="card">
             <h3 className="text-lg font-semibold text-brand-ink">Evidence plan</h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               Scenario rubrics, automated logs, and evaluation reports suitable
               for QI and credentialing.
             </p>

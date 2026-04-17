@@ -96,7 +96,7 @@ export default function Home() {
               <span className="gradient-text">Safer, More Confident</span>{" "}
               Healthcare Teams
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-slate-600 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg text-brand-muted md:text-xl">
               Encountive improves communication, decision-making, emotional
               resilience, and clinical safety across the healthcare workforce.
               Powered by The Encountive Engine™, your adaptive clinical
@@ -110,13 +110,13 @@ export default function Home() {
                 About the product
               </Link>
             </div>
-            <p className="mt-6 text-xs font-medium uppercase tracking-widest text-slate-500">
+            <p className="mt-6 text-xs font-medium uppercase tracking-widest text-brand-muted">
               Training only — not clinical decision support.
             </p>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-brand-surface p-8 shadow-soft">
               <div
                 aria-hidden
                 className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-brand-gradient opacity-20 blur-3xl"
@@ -133,8 +133,8 @@ export default function Home() {
                   "Web and mobile today; XR when immersion matters",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-blue" />
-                    <span className="text-slate-700">{item}</span>
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
+                    <span className="text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -152,14 +152,14 @@ export default function Home() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {audiences.map(({ icon: Icon, title, subtitle, body }) => (
             <div key={title} className="card flex h-full flex-col">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient-soft">
-                <Icon className="h-5 w-5 text-brand-blue" aria-hidden />
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10">
+                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
+              <p className="text-xs font-medium uppercase tracking-wider text-brand-muted">
                 {subtitle}
               </p>
-              <p className="mt-3 text-sm text-slate-600">{body}</p>
+              <p className="mt-3 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
@@ -170,19 +170,19 @@ export default function Home() {
         title="When Encountive is in the loop"
         subtitle="A glimpse of the shift we're designing for — from inconsistent practice to evidence your leaders can defend."
       >
-        <div className="overflow-hidden rounded-2xl border border-slate-200">
-          <div className="grid grid-cols-1 bg-slate-50 text-xs font-semibold uppercase tracking-widest text-slate-500 md:grid-cols-2">
+        <div className="overflow-hidden rounded-2xl border border-white/10">
+          <div className="grid grid-cols-1 bg-white/5 text-xs font-semibold uppercase tracking-widest text-brand-muted md:grid-cols-2">
             <div className="px-6 py-4">Before</div>
             <div className="hidden px-6 py-4 md:block">Potential outcomes</div>
           </div>
-          <ul className="divide-y divide-slate-200 bg-white">
+          <ul className="divide-y divide-white/10 bg-brand-surface">
             {beforeAfter.map((row, idx) => (
               <li key={idx} className="grid grid-cols-1 md:grid-cols-2">
-                <div className="border-r border-slate-200 p-6 text-slate-600">
+                <div className="border-r border-white/10 p-6 text-brand-muted">
                   {row.before}
                 </div>
-                <div className="bg-brand-gradient-soft p-6 text-brand-ink">
-                  <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-brand-blue md:hidden">
+                <div className="bg-brand-cyan/10 p-6 text-brand-ink">
+                  <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-brand-cyan md:hidden">
                     Potential outcome
                   </span>
                   {row.after}
@@ -201,9 +201,9 @@ export default function Home() {
         <div className="grid gap-5 md:grid-cols-3">
           {differentiators.map(({ icon: Icon, title, body }) => (
             <div key={title} className="card h-full">
-              <Icon className="h-6 w-6 text-brand-blue" aria-hidden />
+              <Icon className="h-6 w-6 text-brand-cyan" aria-hidden />
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
@@ -223,14 +223,14 @@ export default function Home() {
               <span className="gradient-text text-3xl font-extrabold md:text-4xl">
                 {stat.value}
               </span>
-              <p className="mt-3 text-sm text-slate-600">{stat.label}</p>
+              <p className="mt-3 text-sm text-brand-muted">{stat.label}</p>
             </div>
           ))}
         </div>
         <div className="mt-8">
           <Link
             to="/roi"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:text-brand-orange"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:text-brand-amber"
           >
             See the full ROI breakdown <ArrowRight className="h-4 w-4" />
           </Link>
@@ -247,7 +247,7 @@ export default function Home() {
             <h3 className="text-lg font-semibold text-brand-ink">
               In development with clinical experts
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               We're building Encountive with simulation educators, nurse leaders,
               and academic programs — so scenarios, rubrics, and evidence match
               how your teams actually work.
@@ -257,14 +257,14 @@ export default function Home() {
             <h3 className="text-lg font-semibold text-brand-ink">
               Preparing pilots — limited spots
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               We run scoped 60–90 day pilots with baseline-to-post measurement,
               conversion terms on success, and evaluation reports suitable for QI
               and credentialing.
             </p>
             <Link
               to="/contact"
-              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:text-brand-orange"
+              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:text-brand-amber"
             >
               Plan a pilot <ArrowRight className="h-4 w-4" />
             </Link>

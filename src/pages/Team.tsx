@@ -85,17 +85,17 @@ export default function Team() {
                 <Avatar initials={m.initials} name={m.name} />
                 <div>
                   <h2 className="text-xl font-semibold text-brand-ink">{m.name}</h2>
-                  <p className="text-sm font-medium text-brand-blue">{m.title}</p>
+                  <p className="text-sm font-medium text-brand-cyan">{m.title}</p>
                   {m.credentials && (
-                    <p className="text-xs text-slate-500">{m.credentials}</p>
+                    <p className="text-xs text-brand-muted">{m.credentials}</p>
                   )}
-                  <p className="mt-3 text-sm text-slate-600">{m.blurb}</p>
+                  <p className="mt-3 text-sm text-brand-muted">{m.blurb}</p>
                 </div>
               </div>
             </article>
           ))}
         </div>
-        <p className="mt-8 text-xs text-slate-500">
+        <p className="mt-8 text-xs text-brand-muted">
           Placeholder avatars. Headshots and full bios will be added as team
           content is finalized.
         </p>

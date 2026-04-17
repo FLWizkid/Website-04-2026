@@ -35,7 +35,7 @@ export default function CtaBanner({
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to={primaryTo}
-                className="btn bg-white text-brand-ink hover:bg-slate-50"
+                className="btn bg-white text-brand-bg hover:bg-slate-100"
               >
                 {primaryLabel}
               </Link>

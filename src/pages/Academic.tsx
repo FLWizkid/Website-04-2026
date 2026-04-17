@@ -85,11 +85,11 @@ export default function Academic() {
         <div className="grid gap-5 md:grid-cols-3">
           {segments.map(({ icon: Icon, title, body }) => (
             <div key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient-soft">
-                <Icon className="h-5 w-5 text-brand-blue" aria-hidden />
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10">
+                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
@@ -103,26 +103,26 @@ export default function Academic() {
         <div className="grid gap-5 md:grid-cols-3">
           {outcomes.map(({ icon: Icon, title, body }) => (
             <div key={title} className="card h-full">
-              <Icon className="h-6 w-6 text-brand-blue" aria-hidden />
+              <Icon className="h-6 w-6 text-brand-cyan" aria-hidden />
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-8 md:p-10">
+        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
           <p className="eyebrow">Academic cohort example</p>
           <h3 className="mt-3 text-2xl font-bold text-brand-ink">
             3.88x ROI with{" "}
             <span className="gradient-text">$122k in modeled benefit</span> for a 200-student cohort
           </h3>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-2xl text-brand-muted">
             Modeled reductions in faculty prep time, improved pass rates, and
             cohort-level competency growth. Full assumptions on our ROI page.
           </p>
           <Link
             to="/roi"
-            className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:text-brand-orange"
+            className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:text-brand-amber"
           >
             See the ROI breakdown <ArrowRight className="h-4 w-4" />
           </Link>
@@ -137,10 +137,10 @@ export default function Academic() {
           {objectives.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4"
+              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface p-4"
             >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-blue" />
-              <span className="text-sm text-slate-700">{item}</span>
+              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
+              <span className="text-sm text-slate-300">{item}</span>
             </li>
           ))}
         </ul>
@@ -157,7 +157,7 @@ export default function Academic() {
             <h3 className="text-lg font-semibold text-brand-ink">
               Pilot-based entry
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               Pilots with clear success criteria and conversion terms.
               Faculty time saved, competency deltas, and outcomes briefs you can
               share with your committee.
@@ -167,7 +167,7 @@ export default function Academic() {
             <h3 className="text-lg font-semibold text-brand-ink">
               Drop-in accreditation support
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               Objectives, time-on-task, assessment blueprints, evaluation
               templates, and recordkeeping SOPs to streamline provider approval.
             </p>

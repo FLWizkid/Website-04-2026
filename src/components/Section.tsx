@@ -14,9 +14,9 @@ type SectionProps = {
 };
 
 const toneClasses: Record<NonNullable<SectionProps["tone"]>, string> = {
-  default: "bg-white",
-  muted: "bg-brand-mist",
-  dark: "bg-brand-navy text-white",
+  default: "bg-transparent",
+  muted: "bg-brand-surface/40 border-y border-white/5",
+  dark: "bg-black/40 border-y border-white/10",
   gradient: "bg-brand-gradient text-white",
 };
 
@@ -45,9 +45,7 @@ export default function Section({
               <p
                 className={cn(
                   "eyebrow",
-                  tone === "dark" || tone === "gradient"
-                    ? "text-white/80"
-                    : undefined
+                  tone === "gradient" && "text-white/80"
                 )}
               >
                 {eyebrow}
@@ -57,9 +55,7 @@ export default function Section({
               <h2
                 className={cn(
                   "mt-3 text-3xl font-bold md:text-4xl",
-                  tone === "dark" || tone === "gradient"
-                    ? "text-white"
-                    : "text-brand-ink"
+                  tone === "gradient" ? "text-white" : "text-white"
                 )}
               >
                 {title}
@@ -69,9 +65,7 @@ export default function Section({
               <p
                 className={cn(
                   "mt-4 text-base md:text-lg",
-                  tone === "dark" || tone === "gradient"
-                    ? "text-white/80"
-                    : "text-slate-600"
+                  tone === "gradient" ? "text-white/85" : "text-brand-muted"
                 )}
               >
                 {subtitle}

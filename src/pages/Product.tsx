@@ -122,11 +122,11 @@ export default function Product() {
         <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map(({ icon: Icon, title, body }) => (
             <li key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient-soft">
-                <Icon className="h-5 w-5 text-brand-blue" aria-hidden />
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10">
+                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </li>
           ))}
         </ol>
@@ -145,25 +145,25 @@ export default function Product() {
                 <Icon className="h-5 w-5" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-8 md:p-10">
+        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
               <p className="eyebrow">XR-ready</p>
               <h3 className="mt-3 text-2xl font-bold text-brand-ink">
                 Phone-based AR/VR for hands-on skills — when you're ready
               </h3>
-              <p className="mt-3 text-slate-600">
+              <p className="mt-3 text-brand-muted">
                 Start on web and mobile for reach. Plug in XR modules — with
                 mastery rules and telemetry — where immersion truly moves the
                 needle.
               </p>
             </div>
-            <Boxes className="h-16 w-16 text-brand-blue" aria-hidden />
+            <Boxes className="h-16 w-16 text-brand-cyan" aria-hidden />
           </div>
         </div>
       </Section>
@@ -176,10 +176,10 @@ export default function Product() {
           {workflows.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4"
+              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface p-4"
             >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-blue" />
-              <span className="text-sm text-slate-700">{item}</span>
+              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
+              <span className="text-sm text-slate-300">{item}</span>
             </li>
           ))}
         </ul>
@@ -194,7 +194,7 @@ export default function Product() {
           {differentiators.map((item) => (
             <div key={item.title} className="card h-full">
               <h3 className="text-lg font-semibold text-brand-ink">{item.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{item.body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{item.body}</p>
             </div>
           ))}
         </div>
@@ -209,14 +209,14 @@ export default function Product() {
             <h3 className="text-lg font-semibold text-brand-ink">
               Instructional, non-clinical
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               Content aligned to delegated duties and scope. No diagnosis or
               treatment training.
             </p>
           </div>
           <div className="card">
             <h3 className="text-lg font-semibold text-brand-ink">Accessibility</h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               Captions, transcripts, WCAG-compliant delivery, alt text, keyboard
               navigation.
             </p>
@@ -225,7 +225,7 @@ export default function Product() {
             <h3 className="text-lg font-semibold text-brand-ink">
               CE-ready process templates
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-brand-muted">
               For accredited providers (NCPD / Joint Accreditation) and
               recordkeeping.
             </p>

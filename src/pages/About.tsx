@@ -43,14 +43,14 @@ export default function About() {
 
       <Section eyebrow="Our story" title="Built for the hardest parts of care">
         <div className="grid gap-8 lg:grid-cols-5">
-          <p className="text-lg text-slate-600 lg:col-span-3">
+          <p className="text-lg text-brand-muted lg:col-span-3">
             Clinical teams are expected to navigate conflict, grief, uncertainty,
             and high-stakes conversations — often with limited practice and
             inconsistent feedback. Encountive is designed to close that gap with
             simulation that feels real, supports repeat practice, and makes
             growth measurable through coaching and reporting.
           </p>
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 lg:col-span-2">
+          <div className="rounded-3xl border border-white/10 bg-brand-surface p-6 lg:col-span-2">
             <p className="eyebrow">Purpose</p>
             <p className="mt-2 text-brand-ink">
               Elevate the human side of healthcare — communication, judgment,
@@ -74,11 +74,11 @@ export default function About() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {values.map(({ icon: Icon, title, body }) => (
             <div key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient-soft">
-                <Icon className="h-5 w-5 text-brand-blue" aria-hidden />
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10">
+                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{body}</p>
+              <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
         </div>
@@ -99,17 +99,17 @@ export default function About() {
                   <p className="text-sm font-semibold text-brand-ink">
                     Melissa Jo Tully
                   </p>
-                  <p className="text-xs text-slate-500">BSN, MHPE, RN-BC</p>
+                  <p className="text-xs text-brand-muted">BSN, MHPE, RN-BC</p>
                 </div>
               </div>
-              <p className="mt-4 text-sm text-slate-600">
+              <p className="mt-4 text-sm text-brand-muted">
                 CEO, Founder, and Chief Simulation Architect. Clinical expertise
                 in simulation-based training and healthcare education.
               </p>
             </div>
           </aside>
 
-          <article className="prose-slate max-w-none space-y-4 text-slate-700 lg:col-span-3">
+          <article className="prose-slate max-w-none space-y-4 text-slate-300 lg:col-span-3">
             <p>
               I've spent my career in and around healthcare simulation. First as
               a nurse at the bedside, then as a clinical educator designing
@@ -261,9 +261,9 @@ export default function About() {
               Founder &amp; CEO, Encountive, Inc.
             </p>
 
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+            <div className="mt-8 rounded-2xl border border-white/10 bg-brand-surface p-6">
               <p className="text-sm font-semibold text-brand-ink">Let's talk:</p>
-              <ul className="mt-2 space-y-1 text-sm text-slate-600">
+              <ul className="mt-2 space-y-1 text-sm text-brand-muted">
                 <li>• Run a 60–90 day pilot</li>
                 <li>• Map your competencies to scenarios</li>
                 <li>• Explore enterprise or academic licensing</li>

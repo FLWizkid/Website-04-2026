@@ -36,7 +36,7 @@ export default function Logo({ className, withTagline = true, size = "md" }: Log
           Encountive
         </span>
         {withTagline && (
-          <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-slate-500">
+          <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-brand-muted">
             XR + AI Training
           </span>
         )}

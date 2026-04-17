@@ -80,7 +80,7 @@ export default function ROI() {
               <span className="gradient-text text-3xl font-extrabold md:text-4xl">
                 {stat.value}
               </span>
-              <p className="mt-3 text-sm text-slate-600">{stat.label}</p>
+              <p className="mt-3 text-sm text-brand-muted">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -112,9 +112,9 @@ export default function ROI() {
           <div className="grid gap-5 md:grid-cols-3 lg:col-span-3">
             {hospitalBreakdown.map(({ icon: Icon, title, body }) => (
               <div key={title} className="card h-full">
-                <Icon className="h-6 w-6 text-brand-blue" aria-hidden />
+                <Icon className="h-6 w-6 text-brand-cyan" aria-hidden />
                 <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{body}</p>
+                <p className="mt-2 text-sm text-brand-muted">{body}</p>
               </div>
             ))}
           </div>
@@ -128,16 +128,16 @@ export default function ROI() {
       >
         <div className="grid gap-6 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
+            <div className="rounded-3xl border border-white/10 bg-brand-surface p-8 shadow-soft">
               <p className="eyebrow">Modeled annual benefit</p>
               <p className="mt-3 text-5xl font-extrabold gradient-text">
                 $122,000
               </p>
-              <p className="mt-4 text-sm text-slate-600">
+              <p className="mt-4 text-sm text-brand-muted">
                 3.88x ROI for a 200-student cohort. Faculty time savings,
                 improved readiness, and cohort-level competency evidence.
               </p>
-              <p className="mt-6 text-xs text-slate-500">
+              <p className="mt-6 text-xs text-brand-muted">
                 Illustrative figure. Benefit — not price.
               </p>
             </div>
@@ -148,7 +148,7 @@ export default function ROI() {
                 <h3 className="text-lg font-semibold text-brand-ink">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600">{item.body}</p>
+                <p className="mt-2 text-sm text-brand-muted">{item.body}</p>
               </div>
             ))}
           </div>
@@ -171,10 +171,10 @@ export default function ROI() {
           ].map((m) => (
             <li
               key={m}
-              className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4"
+              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface p-4"
             >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-blue" />
-              <span className="text-sm text-slate-700">{m}</span>
+              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
+              <span className="text-sm text-slate-300">{m}</span>
             </li>
           ))}
         </ul>
@@ -184,12 +184,12 @@ export default function ROI() {
         eyebrow="Future outcomes"
         title="Outcome-based contracts — on the roadmap"
       >
-        <div className="rounded-3xl border border-slate-200 bg-white p-8 md:p-10">
-          <Sparkles className="h-6 w-6 text-brand-blue" aria-hidden />
+        <div className="rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
+          <Sparkles className="h-6 w-6 text-brand-cyan" aria-hidden />
           <h3 className="mt-4 text-xl font-semibold text-brand-ink">
             Contracts tied to outcomes, not features
           </h3>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-2xl text-brand-muted">
             As our evidence base matures, we're preparing outcome-based
             contracts tied to the measures your leaders already track — so value
             and cost move together.

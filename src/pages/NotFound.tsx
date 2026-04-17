@@ -8,7 +8,7 @@ export default function NotFound() {
         <h1 className="mt-3 text-4xl font-extrabold text-brand-ink md:text-5xl">
           That page is off the beaten path.
         </h1>
-        <p className="mt-4 text-lg text-slate-600">
+        <p className="mt-4 text-lg text-brand-muted">
           Let's get you back to something useful.
         </p>
         <div className="mt-8 flex justify-center gap-3">

@@ -65,13 +65,13 @@ export default function Header() {
       className={cn(
         "sticky top-0 z-40 w-full border-b transition-colors",
         scrolled
-          ? "border-slate-200 bg-white/85 backdrop-blur"
-          : "border-transparent bg-white/60 backdrop-blur-sm"
+          ? "border-white/10 bg-brand-bg/80 backdrop-blur"
+          : "border-transparent bg-brand-bg/60 backdrop-blur-sm"
       )}
     >
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-brand-blue focus:shadow-soft"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-md focus:bg-brand-surface focus:px-3 focus:py-2 focus:text-brand-cyan focus:shadow-soft"
       >
         Skip to main content
       </a>
@@ -94,8 +94,8 @@ export default function Header() {
                     className={cn(
                       "inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
                       activeChild
-                        ? "text-brand-blue"
-                        : "text-slate-700 hover:text-brand-blue"
+                        ? "text-brand-cyan"
+                        : "text-slate-300 hover:text-brand-cyan"
                     )}
                   >
                     {item.label}
@@ -109,20 +109,20 @@ export default function Header() {
                   {solutionsOpen && (
                     <div
                       role="menu"
-                      className="absolute left-1/2 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-2 shadow-soft"
+                      className="absolute left-1/2 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-white/10 bg-brand-surface/95 p-2 shadow-soft backdrop-blur"
                     >
                       {item.children.map((c) => (
                         <Link
                           key={c.to}
                           to={c.to}
                           role="menuitem"
-                          className="block rounded-xl px-3 py-2 hover:bg-slate-50"
+                          className="block rounded-xl px-3 py-2 hover:bg-white/5"
                         >
                           <div className="text-sm font-semibold text-brand-ink">
                             {c.label}
                           </div>
                           {c.description && (
-                            <div className="text-xs text-slate-500">
+                            <div className="text-xs text-brand-muted">
                               {c.description}
                             </div>
                           )}
@@ -142,8 +142,8 @@ export default function Header() {
                   cn(
                     "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                     isActive
-                      ? "text-brand-blue"
-                      : "text-slate-700 hover:text-brand-blue"
+                      ? "text-brand-cyan"
+                      : "text-slate-300 hover:text-brand-cyan"
                   )
                 }
               >
@@ -164,7 +164,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-brand-surface/80 text-slate-200 lg:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((o) => !o)}
@@ -174,19 +174,19 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-slate-200 bg-white lg:hidden">
+        <div className="border-t border-white/10 bg-brand-bg/95 backdrop-blur lg:hidden">
           <nav aria-label="Mobile" className="container-xl flex flex-col gap-1 py-4">
             {NAV.map((item) =>
               item.children ? (
                 <div key={item.label} className="py-1">
-                  <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
+                  <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-brand-muted">
                     {item.label}
                   </div>
                   {item.children.map((c) => (
                     <NavLink
                       key={c.to}
                       to={c.to}
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-slate-300 hover:bg-white/5"
                     >
                       {c.label}
                     </NavLink>
@@ -201,8 +201,8 @@ export default function Header() {
                     cn(
                       "rounded-lg px-3 py-2 text-sm font-medium",
                       isActive
-                        ? "bg-slate-50 text-brand-blue"
-                        : "text-slate-700 hover:bg-slate-50"
+                        ? "bg-white/5 text-brand-cyan"
+                        : "text-slate-300 hover:bg-white/5"
                     )
                   }
                 >
