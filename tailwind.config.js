@@ -44,9 +44,9 @@ export default {
       },
       backgroundImage: {
         "brand-gradient":
-          "linear-gradient(90deg, #007BFF 0%, #FF6B00 100%)",
+          "linear-gradient(90deg, #22D3EE 0%, #6366F1 100%)",
         "brand-gradient-soft":
-          "linear-gradient(135deg, rgba(34,211,238,0.14) 0%, rgba(245,158,11,0.14) 100%)",
+          "linear-gradient(135deg, rgba(34,211,238,0.14) 0%, rgba(99,102,241,0.14) 100%)",
         "cyan-glow":
           "radial-gradient(120% 80% at 50% 0%, rgba(34,211,238,0.22), transparent 60%)",
       },
