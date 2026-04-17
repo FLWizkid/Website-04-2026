@@ -158,7 +158,7 @@ export default function Academic() {
               Pilot-based entry
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Paid pilots with clear success criteria and conversion terms.
+              Pilots with clear success criteria and conversion terms.
               Faculty time saved, competency deltas, and outcomes briefs you can
               share with your committee.
             </p>

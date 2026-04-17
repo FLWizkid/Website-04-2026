@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 
 type Interest =
   | ""
-  | "Paid Pilot"
+  | "Pilot"
   | "Demo"
   | "Academic License"
   | "Partnership"
@@ -32,7 +32,7 @@ const initial: FormState = {
 };
 
 const interests: Exclude<Interest, "">[] = [
-  "Paid Pilot",
+  "Pilot",
   "Demo",
   "Academic License",
   "Partnership",

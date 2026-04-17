@@ -255,7 +255,7 @@ export default function Home() {
           </div>
           <div className="card">
             <h3 className="text-lg font-semibold text-brand-ink">
-              Preparing paid pilots — limited spots
+              Preparing pilots — limited spots
             </h3>
             <p className="mt-2 text-sm text-slate-600">
               We run scoped 60–90 day pilots with baseline-to-post measurement,

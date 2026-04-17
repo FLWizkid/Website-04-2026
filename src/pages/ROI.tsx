@@ -187,7 +187,7 @@ export default function ROI() {
         <div className="rounded-3xl border border-slate-200 bg-white p-8 md:p-10">
           <Sparkles className="h-6 w-6 text-brand-blue" aria-hidden />
           <h3 className="mt-4 text-xl font-semibold text-brand-ink">
-            Pay for outcomes, not features
+            Contracts tied to outcomes, not features
           </h3>
           <p className="mt-3 max-w-2xl text-slate-600">
             As our evidence base matures, we're preparing outcome-based

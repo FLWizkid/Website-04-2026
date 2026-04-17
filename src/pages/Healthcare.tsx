@@ -101,7 +101,7 @@ export default function Healthcare() {
         actions={
           <>
             <Link to="/contact" className="btn-primary">
-              Start a paid pilot <ArrowRight className="h-4 w-4" />
+              Start a pilot <ArrowRight className="h-4 w-4" />
             </Link>
             <Link to="/roi" className="btn-secondary">
               See the ROI math
@@ -188,7 +188,7 @@ export default function Healthcare() {
       <Section
         tone="muted"
         eyebrow="Pilot doctrine"
-        title="60–90 day paid pilots with outcomes you can defend"
+        title="60–90 day pilots with outcomes you can defend"
       >
         <div className="grid gap-5 md:grid-cols-2">
           <div className="card">
@@ -211,7 +211,7 @@ export default function Healthcare() {
       <CtaBanner
         title="Ready to scope a healthcare pilot?"
         subtitle="Tell us about your units, workflows, and goals. We'll come back with a tailored pilot plan and the outcomes we'd measure together."
-        primaryLabel="Start a paid pilot"
+        primaryLabel="Start a pilot"
         secondaryLabel="Talk to our team"
       />
     </>
