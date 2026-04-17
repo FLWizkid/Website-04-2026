@@ -222,7 +222,7 @@ export default function Contact() {
                     required
                     value={form.interest}
                     onChange={update("interest")}
-                    className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
+                    className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface-2 px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
                   >
                     <option value="" disabled>
                       Select an option
@@ -249,7 +249,7 @@ export default function Contact() {
                     value={form.message}
                     onChange={update("message")}
                     required
-                    className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
+                    className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface-2 px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
                     placeholder="Tell us about your program, unit, or goals — no PHI, please."
                   />
                 </div>
@@ -263,7 +263,7 @@ export default function Contact() {
                   <p
                     role="status"
                     aria-live="polite"
-                    className="mt-3 rounded-xl border border-white/10 bg-brand-surface p-4 text-sm text-slate-300"
+                    className="mt-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4 text-sm text-slate-300"
                   >
                     Your email client should have opened with the details
                     pre-filled. If it didn't,{" "}
@@ -326,7 +326,7 @@ function Field({
         onChange={onChange}
         required={required}
         autoComplete={autoComplete}
-        className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
+        className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface-2 px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
       />
       {hint && <p className="mt-1 text-xs text-brand-muted">{hint}</p>}
     </div>

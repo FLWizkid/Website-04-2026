@@ -50,7 +50,7 @@ export default function About() {
             simulation that feels real, supports repeat practice, and makes
             growth measurable through coaching and reporting.
           </p>
-          <div className="rounded-3xl border border-white/10 bg-brand-surface p-6 lg:col-span-2">
+          <div className="rounded-3xl border border-white/10 bg-brand-surface-2 p-6 lg:col-span-2">
             <p className="eyebrow">Purpose</p>
             <p className="mt-2 text-brand-ink">
               Elevate the human side of healthcare — communication, judgment,
@@ -261,7 +261,7 @@ export default function About() {
               Founder &amp; CEO, Encountive, Inc.
             </p>
 
-            <div className="mt-8 rounded-2xl border border-white/10 bg-brand-surface p-6">
+            <div className="mt-8 rounded-2xl border border-white/10 bg-brand-surface-2 p-6">
               <p className="text-sm font-semibold text-brand-ink">Let's talk:</p>
               <ul className="mt-2 space-y-1 text-sm text-brand-muted">
                 <li>• Run a 60–90 day pilot</li>

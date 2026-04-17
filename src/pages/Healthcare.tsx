@@ -140,7 +140,7 @@ export default function Healthcare() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
+        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface-2 p-8 md:p-10">
           <p className="eyebrow">Hospital cohort example</p>
           <h3 className="mt-3 text-2xl font-bold text-brand-ink">
             Up to <span className="gradient-text">$293k in annual benefit</span> modeled for a 100-nurse cohort

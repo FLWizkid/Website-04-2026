@@ -128,7 +128,7 @@ export default function ROI() {
       >
         <div className="grid gap-6 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <div className="rounded-3xl border border-white/10 bg-brand-surface p-8 shadow-soft">
+            <div className="rounded-3xl border border-white/10 bg-brand-surface-2 p-8 shadow-soft">
               <p className="eyebrow">Modeled annual benefit</p>
               <p className="mt-3 text-5xl font-extrabold gradient-text">
                 $122,000
@@ -171,7 +171,7 @@ export default function ROI() {
           ].map((m) => (
             <li
               key={m}
-              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface p-4"
+              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4"
             >
               <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
               <span className="text-sm text-slate-300">{m}</span>
@@ -184,7 +184,7 @@ export default function ROI() {
         eyebrow="Future outcomes"
         title="Outcome-based contracts — on the roadmap"
       >
-        <div className="rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
+        <div className="rounded-3xl border border-white/10 bg-brand-surface-2 p-8 md:p-10">
           <Sparkles className="h-6 w-6 text-brand-cyan" aria-hidden />
           <h3 className="mt-4 text-xl font-semibold text-brand-ink">
             Contracts tied to outcomes, not features

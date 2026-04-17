@@ -150,7 +150,7 @@ export default function Product() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
+        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface-2 p-8 md:p-10">
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
               <p className="eyebrow">XR-ready</p>
@@ -176,7 +176,7 @@ export default function Product() {
           {workflows.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface p-4"
+              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4"
             >
               <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
               <span className="text-sm text-slate-300">{item}</span>

@@ -116,7 +116,7 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-brand-surface p-8 shadow-soft">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-brand-surface-2 p-8 shadow-soft">
               <div
                 aria-hidden
                 className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-brand-gradient opacity-20 blur-3xl"
@@ -175,7 +175,7 @@ export default function Home() {
             <div className="px-6 py-4">Before</div>
             <div className="hidden px-6 py-4 md:block">Potential outcomes</div>
           </div>
-          <ul className="divide-y divide-white/10 bg-brand-surface">
+          <ul className="divide-y divide-white/10 bg-brand-surface-2">
             {beforeAfter.map((row, idx) => (
               <li key={idx} className="grid grid-cols-1 md:grid-cols-2">
                 <div className="border-r border-white/10 p-6 text-brand-muted">

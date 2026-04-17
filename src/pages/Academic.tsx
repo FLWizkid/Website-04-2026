@@ -110,7 +110,7 @@ export default function Academic() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface p-8 md:p-10">
+        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface-2 p-8 md:p-10">
           <p className="eyebrow">Academic cohort example</p>
           <h3 className="mt-3 text-2xl font-bold text-brand-ink">
             3.88x ROI with{" "}
@@ -137,7 +137,7 @@ export default function Academic() {
           {objectives.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface p-4"
+              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4"
             >
               <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
               <span className="text-sm text-slate-300">{item}</span>
