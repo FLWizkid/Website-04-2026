@@ -158,7 +158,7 @@ export default function Contact() {
                 Fill out the form below and we'll get back to you. Submission
                 opens your email client with the details pre-filled.
               </p>
-              <p className="mt-3 rounded-xl bg-brand-cyan/10 px-4 py-3 text-xs text-brand-ink">
+              <p className="mt-3 rounded-xl bg-brand-cyan/15 px-4 py-3 text-xs text-brand-ink">
                 <strong>Note:</strong> Do not include patient identifiers or
                 PHI. This form is for training and procurement discussions only.
               </p>

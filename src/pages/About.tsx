@@ -74,7 +74,7 @@ export default function About() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {values.map(({ icon: Icon, title, body }) => (
             <div key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/15">
                 <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>

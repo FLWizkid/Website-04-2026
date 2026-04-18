@@ -152,7 +152,7 @@ export default function Home() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {audiences.map(({ icon: Icon, title, subtitle, body }) => (
             <div key={title} className="card flex h-full flex-col">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/10">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/15">
                 <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
@@ -181,7 +181,7 @@ export default function Home() {
                 <div className="border-r border-white/10 p-6 text-brand-muted">
                   {row.before}
                 </div>
-                <div className="bg-brand-cyan/10 p-6 text-brand-ink">
+                <div className="bg-brand-cyan/15 p-6 text-brand-ink">
                   <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-brand-cyan md:hidden">
                     Potential outcome
                   </span>

@@ -13,9 +13,9 @@
     @apply bg-brand-bg text-brand-ink font-sans antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     background-image:
-      radial-gradient(1200px 600px at -10% -20%, rgba(34, 211, 238, 0.08), transparent 60%),
-      radial-gradient(900px 500px at 110% -10%, rgba(245, 158, 11, 0.06), transparent 60%),
-      linear-gradient(180deg, #0a0f1f 0%, #0a0f1f 100%);
+      radial-gradient(1200px 600px at -10% -20%, rgba(34, 211, 238, 0.06), transparent 60%),
+      radial-gradient(900px 500px at 110% -10%, rgba(99, 102, 241, 0.05), transparent 60%),
+      linear-gradient(180deg, #060b18 0%, #060b18 100%);
     background-attachment: fixed;
   }
   h1,
@@ -58,13 +58,13 @@
     @apply btn text-brand-ink hover:text-brand-cyan;
   }
   .card {
-    @apply relative rounded-2xl border border-white/10 p-6 shadow-soft transition-colors;
+    @apply relative rounded-2xl border border-white/[0.12] p-6 shadow-soft transition-colors;
     background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 35%),
-      linear-gradient(180deg, #1f2742 0%, #171e36 100%);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 40%),
+      linear-gradient(180deg, #263458 0%, #141b30 100%);
   }
   .card:hover {
-    border-color: rgba(34, 211, 238, 0.28);
+    border-color: rgba(34, 211, 238, 0.35);
   }
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-cyan;
