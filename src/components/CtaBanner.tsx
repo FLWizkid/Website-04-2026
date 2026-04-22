@@ -47,7 +47,7 @@ export default function CtaBanner({
               </Link>
             </div>
             <p className="mt-6 text-xs text-white/70">
-              Training only — not clinical decision support.
+              Encountive is for Training only — not clinical decision support.
             </p>
           </div>
         </div>

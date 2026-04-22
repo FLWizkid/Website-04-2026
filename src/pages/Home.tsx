@@ -111,7 +111,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-6 text-xs font-medium uppercase tracking-widest text-brand-muted">
-              Training only — not clinical decision support.
+              Encountive is for Training only — not clinical decision support.
             </p>
           </div>
 
