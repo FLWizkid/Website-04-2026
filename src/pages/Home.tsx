@@ -110,9 +110,6 @@ export default function Home() {
                 About the product
               </Link>
             </div>
-            <p className="mt-6 text-xs font-medium uppercase tracking-widest text-brand-muted">
-              Encountive is for Training only — not clinical decision support.
-            </p>
           </div>
 
           <div className="lg:col-span-5">

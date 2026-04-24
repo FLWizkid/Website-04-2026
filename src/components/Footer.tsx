@@ -11,7 +11,6 @@ export default function Footer() {
             <Logo />
             <p className="mt-4 max-w-md text-sm text-brand-muted">
               AI-adaptive clinical simulation for healthcare teams.
-              Encountive is for Training only — not clinical decision support.
             </p>
             <div className="mt-4 flex items-center gap-3">
               <a
@@ -108,8 +107,7 @@ export default function Footer() {
         <div className="mt-10 flex flex-col-reverse items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-brand-muted md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Encountive, Inc. All rights reserved.</p>
           <p className="max-w-xl md:text-right">
-            Encountive is for Training only — not clinical decision support. Accessibility:
-            captions, transcripts, WCAG-compliant delivery, keyboard navigation.
+            Accessibility: captions, transcripts, WCAG-compliant delivery, keyboard navigation.
           </p>
         </div>
       </div>
