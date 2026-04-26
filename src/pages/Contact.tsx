@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Mail, ShieldAlert, Send, Clock } from "lucide-react";
+import { Mail, Phone, Send, Clock } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 
@@ -114,17 +114,17 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <ShieldAlert className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" aria-hidden />
+                  <Phone className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" aria-hidden />
                   <div>
                     <dt className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
-                      Security inquiries
+                      Phone
                     </dt>
                     <dd>
                       <a
-                        href="mailto:security@encountive.com"
+                        href="tel:+18134161641"
                         className="font-medium text-brand-ink hover:text-brand-cyan"
                       >
-                        security@encountive.com
+                        (813) 416-1641
                       </a>
                     </dd>
                   </div>
@@ -141,7 +141,7 @@ export default function Contact() {
               </dl>
 
               <p className="mt-6 text-xs text-brand-muted">
-                For urgent security or procurement questions, please include
+                For procurement or implementation questions, please include
                 your institution name and timeline in your message.
               </p>
             </div>
