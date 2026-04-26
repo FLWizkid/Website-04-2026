@@ -92,14 +92,6 @@ export default function Footer() {
                   contact@encountive.com
                 </a>
               </li>
-              <li>
-                <a
-                  href="mailto:security@encountive.com"
-                  className="text-slate-300 hover:text-brand-cyan"
-                >
-                  security@encountive.com
-                </a>
-              </li>
             </ul>
           </div>
         </div>
