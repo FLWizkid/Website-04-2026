@@ -8,8 +8,7 @@ type Interest =
   | "Pilot"
   | "Demo"
   | "Academic License"
-  | "Partnership"
-  | "Investment";
+  | "Partnership";
 
 type FormState = {
   name: string;
@@ -36,7 +35,6 @@ const interests: Exclude<Interest, "">[] = [
   "Demo",
   "Academic License",
   "Partnership",
-  "Investment",
 ];
 
 function buildMailto(f: FormState) {
