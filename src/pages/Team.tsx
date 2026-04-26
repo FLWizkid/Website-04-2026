@@ -27,8 +27,8 @@ const team: Member[] = [
       "Partners with healthcare organizations and academic programs to understand training needs and scope pilots that measure what matters.",
   },
   {
-    name: "Doug Tully",
-    title: "CTO",
+    name: "Douglas Tully",
+    title: "Chief Information Officer",
     initials: "DT",
     blurb:
       "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine™.",
