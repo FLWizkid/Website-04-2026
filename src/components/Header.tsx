@@ -154,9 +154,14 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <Link to="/" className="btn-ghost">
+          <a
+            href="https://app.encountive.com"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-ghost"
+          >
             Login
-          </Link>
+          </a>
           <Link to="/contact" className="btn-ghost">
             Contact
           </Link>
@@ -214,9 +219,14 @@ export default function Header() {
               )
             )}
             <div className="mt-2 flex flex-col gap-2 px-2">
-              <Link to="/" className="btn-secondary">
+              <a
+                href="https://app.encountive.com"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary"
+              >
                 Login
-              </Link>
+              </a>
               <Link to="/contact" className="btn-secondary">
                 Contact
               </Link>
