@@ -155,7 +155,7 @@ export default function Header() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <a
-            href="https://app.encountive.com"
+            href="https://vma-sim-spark.lovable.app/"
             target="_blank"
             rel="noreferrer"
             className="btn-ghost"
@@ -220,7 +220,7 @@ export default function Header() {
             )}
             <div className="mt-2 flex flex-col gap-2 px-2">
               <a
-                href="https://app.encountive.com"
+                href="https://vma-sim-spark.lovable.app/"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-secondary"
