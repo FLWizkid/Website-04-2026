@@ -30,6 +30,7 @@ const team: Member[] = [
     name: "Douglas Tully",
     title: "Founder",
     role: "President and CIO",
+    credentials: "PMP",
     blurb:
       "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine.",
   },
