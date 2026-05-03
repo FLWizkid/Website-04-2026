@@ -88,7 +88,7 @@ export default function About() {
         <div className="grid gap-10 lg:grid-cols-5">
           <aside className="lg:col-span-2">
             <div className="card h-full">
-              <p className="text-sm font-semibold text-brand-ink">
+              <p className="text-lg font-semibold text-brand-ink">
                 Melissa Jo Tully
               </p>
               <p className="text-xs text-brand-muted">BSN, MHPE, RN-BC</p>

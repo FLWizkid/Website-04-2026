@@ -20,7 +20,7 @@ const team: Member[] = [
     credentials: "BSN, MHPE, RN-BC",
     blurb:
       "Healthcare simulation educator and CEO with 20+ years in clinical practice and education design. Leads product vision and clinical rigor.",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/melissajotully/",
   },
   {
     name: "Jeff Plaza",
@@ -28,7 +28,6 @@ const team: Member[] = [
     role: "Chief Commercial Officer",
     blurb:
       "Partners with healthcare organizations and academic programs to understand training needs and scope pilots that measure what matters.",
-    linkedin: "#",
   },
   {
     name: "Douglas Tully",
@@ -37,7 +36,7 @@ const team: Member[] = [
     credentials: "PMP",
     blurb:
       "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine.",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/douglastully/",
   },
   {
     name: "Nisha Patel",
@@ -45,7 +44,7 @@ const team: Member[] = [
     role: "Chief Product Officer",
     blurb:
       "Defines product strategy and user experience. Makes sure Encountive works for clinicians, educators, and administrators.",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/nishap299/",
   },
 ];
 
