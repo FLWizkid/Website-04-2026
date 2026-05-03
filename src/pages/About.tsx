@@ -88,22 +88,12 @@ export default function About() {
         <div className="grid gap-10 lg:grid-cols-5">
           <aside className="lg:col-span-2">
             <div className="card h-full">
-              <div className="flex items-center gap-4">
-                <div
-                  aria-hidden
-                  className="grid h-16 w-16 place-items-center rounded-full bg-brand-gradient text-xl font-extrabold text-white"
-                >
-                  MT
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-brand-ink">
-                    Melissa Jo Tully
-                  </p>
-                  <p className="text-xs text-brand-muted">BSN, MHPE, RN-BC</p>
-                </div>
-              </div>
+              <p className="text-lg font-semibold text-brand-ink">
+                Melissa Jo Tully
+              </p>
+              <p className="text-xs text-brand-muted">BSN, MHPE, RN-BC</p>
               <p className="mt-4 text-sm text-brand-muted">
-                CEO, Founder, and Chief Simulation Architect. Clinical expertise
+                Founder, CEO, and Chief Simulation Architect. Clinical expertise
                 in simulation-based training and healthcare education.
               </p>
             </div>

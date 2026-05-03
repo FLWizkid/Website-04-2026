@@ -1,3 +1,4 @@
+import { Linkedin } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import CtaBanner from "@/components/CtaBanner";
@@ -8,6 +9,7 @@ type Member = {
   role: string;
   blurb: string;
   credentials?: string;
+  linkedin?: string;
 };
 
 const team: Member[] = [
@@ -18,6 +20,7 @@ const team: Member[] = [
     credentials: "BSN, MHPE, RN-BC",
     blurb:
       "Healthcare simulation educator and CEO with 20+ years in clinical practice and education design. Leads product vision and clinical rigor.",
+    linkedin: "https://www.linkedin.com/in/melissajotully/",
   },
   {
     name: "Jeff Plaza",
@@ -33,6 +36,7 @@ const team: Member[] = [
     credentials: "PMP",
     blurb:
       "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine.",
+    linkedin: "https://www.linkedin.com/in/douglastully/",
   },
   {
     name: "Nisha Patel",
@@ -40,6 +44,7 @@ const team: Member[] = [
     role: "Chief Product Officer",
     blurb:
       "Defines product strategy and user experience. Makes sure Encountive works for clinicians, educators, and administrators.",
+    linkedin: "https://www.linkedin.com/in/nishap299/",
   },
 ];
 
@@ -67,6 +72,18 @@ export default function Team() {
                 <p className="text-xs text-brand-muted">{m.credentials}</p>
               )}
               <p className="mt-3 text-sm text-brand-muted">{m.blurb}</p>
+              {m.linkedin && (
+                <a
+                  href={m.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${m.name} on LinkedIn`}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors hover:border-brand-cyan/40 hover:text-brand-cyan"
+                >
+                  <Linkedin className="h-4 w-4" aria-hidden />
+                  LinkedIn
+                </a>
+              )}
             </article>
           ))}
         </div>
