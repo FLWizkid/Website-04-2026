@@ -31,7 +31,7 @@ const team: Member[] = [
     title: "Chief Information Officer",
     initials: "DT",
     blurb:
-      "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine™.",
+      "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine.",
   },
   {
     name: "Nisha Patel",

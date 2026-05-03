@@ -99,7 +99,7 @@ export default function Home() {
             <p className="mt-6 max-w-2xl text-lg text-brand-muted md:text-xl">
               Encountive improves communication, decision-making, emotional
               resilience, and clinical safety across the healthcare workforce.
-              Powered by The Encountive Engine™, your adaptive clinical
+              Powered by The Encountive Engine, your adaptive clinical
               intelligence engine.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -118,7 +118,7 @@ export default function Home() {
                 aria-hidden
                 className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-brand-gradient opacity-20 blur-3xl"
               />
-              <p className="eyebrow">The Encountive Engine™</p>
+              <p className="eyebrow">The Encountive Engine</p>
               <h2 className="mt-2 text-xl font-bold text-brand-ink">
                 Scenario → coaching → evidence, at scale
               </h2>

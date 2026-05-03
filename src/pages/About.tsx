@@ -38,7 +38,7 @@ export default function About() {
             <span className="gradient-text">safer, more human care</span>
           </>
         }
-        subtitle="We're building Encountive, an AI-adaptive simulation platform for clinical communication, empathy, and decision-making. The Encountive Engine™ is the AI engine that powers coaching and feedback."
+        subtitle="We're building Encountive, an AI-adaptive simulation platform for clinical communication, empathy, and decision-making. The Encountive Engine is the AI engine that powers coaching and feedback."
       />
 
       <Section eyebrow="Our story" title="Built for the hardest parts of care">

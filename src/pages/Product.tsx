@@ -135,7 +135,7 @@ export default function Product() {
       <Section
         tone="muted"
         eyebrow="What's inside"
-        title="The Encountive Engine™"
+        title="The Encountive Engine"
         subtitle="Adaptive clinical intelligence that turns real workflows into coached practice. Four modules, one engine, everything logged."
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
