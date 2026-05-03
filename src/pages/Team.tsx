@@ -6,7 +6,6 @@ type Member = {
   name: string;
   title: string;
   role: string;
-  initials: string;
   blurb: string;
   credentials?: string;
 };
@@ -17,7 +16,6 @@ const team: Member[] = [
     title: "Founder",
     role: "Chief Executive Officer",
     credentials: "BSN, MHPE, RN-BC",
-    initials: "MT",
     blurb:
       "Healthcare simulation educator and CEO with 20+ years in clinical practice and education design. Leads product vision and clinical rigor.",
   },
@@ -25,7 +23,6 @@ const team: Member[] = [
     name: "Jeff Plaza",
     title: "Founder",
     role: "Chief Commercial Officer",
-    initials: "JP",
     blurb:
       "Partners with healthcare organizations and academic programs to understand training needs and scope pilots that measure what matters.",
   },
@@ -33,7 +30,6 @@ const team: Member[] = [
     name: "Douglas Tully",
     title: "Founder",
     role: "President and CIO",
-    initials: "DT",
     blurb:
       "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine.",
   },
@@ -41,33 +37,10 @@ const team: Member[] = [
     name: "Nisha Patel",
     title: "Founder",
     role: "Chief Product Officer",
-    initials: "NP",
     blurb:
       "Defines product strategy and user experience. Makes sure Encountive works for clinicians, educators, and administrators.",
   },
 ];
-
-function Avatar({ initials, name }: { initials: string; name: string }) {
-  return (
-    <div
-      role="img"
-      aria-label={`Placeholder avatar for ${name}`}
-      className="relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-brand-gradient text-white shadow-soft"
-    >
-      <span
-        aria-hidden
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.5), transparent 60%)",
-        }}
-      />
-      <span className="relative font-display text-xl font-extrabold">
-        {initials}
-      </span>
-    </div>
-  );
-}
 
 export default function Team() {
   return (
@@ -86,18 +59,13 @@ export default function Team() {
         <div className="grid gap-6 md:grid-cols-2">
           {team.map((m) => (
             <article key={m.name} className="card h-full">
-              <div className="flex items-start gap-5">
-                <Avatar initials={m.initials} name={m.name} />
-                <div>
-                  <h2 className="text-xl font-semibold text-brand-ink">{m.name}</h2>
-                  <p className="text-sm font-medium text-brand-cyan">{m.title}</p>
-                  <p className="text-sm font-medium text-brand-ink">{m.role}</p>
-                  {m.credentials && (
-                    <p className="text-xs text-brand-muted">{m.credentials}</p>
-                  )}
-                  <p className="mt-3 text-sm text-brand-muted">{m.blurb}</p>
-                </div>
-              </div>
+              <h2 className="text-xl font-semibold text-brand-ink">{m.name}</h2>
+              <p className="text-sm font-medium text-brand-cyan">{m.title}</p>
+              <p className="text-sm font-medium text-brand-ink">{m.role}</p>
+              {m.credentials && (
+                <p className="text-xs text-brand-muted">{m.credentials}</p>
+              )}
+              <p className="mt-3 text-sm text-brand-muted">{m.blurb}</p>
             </article>
           ))}
         </div>
