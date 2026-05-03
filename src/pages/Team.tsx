@@ -5,6 +5,7 @@ import CtaBanner from "@/components/CtaBanner";
 type Member = {
   name: string;
   title: string;
+  role: string;
   initials: string;
   blurb: string;
   credentials?: string;
@@ -13,7 +14,8 @@ type Member = {
 const team: Member[] = [
   {
     name: "Melissa Tully",
-    title: "CEO & Founder",
+    title: "Founder",
+    role: "Chief Executive Officer",
     credentials: "BSN, MHPE, RN-BC",
     initials: "MT",
     blurb:
@@ -21,21 +23,24 @@ const team: Member[] = [
   },
   {
     name: "Jeff Plaza",
-    title: "Business Development",
+    title: "Founder",
+    role: "Chief Commercial Officer",
     initials: "JP",
     blurb:
       "Partners with healthcare organizations and academic programs to understand training needs and scope pilots that measure what matters.",
   },
   {
     name: "Douglas Tully",
-    title: "Chief Information Officer",
+    title: "Founder",
+    role: "President and CIO",
     initials: "DT",
     blurb:
       "Leads technology and platform architecture. Builds the AI and XR systems that power The Encountive Engine.",
   },
   {
     name: "Nisha Patel",
-    title: "Product Manager",
+    title: "Founder",
+    role: "Chief Product Officer",
     initials: "NP",
     blurb:
       "Defines product strategy and user experience. Makes sure Encountive works for clinicians, educators, and administrators.",
@@ -86,6 +91,7 @@ export default function Team() {
                 <div>
                   <h2 className="text-xl font-semibold text-brand-ink">{m.name}</h2>
                   <p className="text-sm font-medium text-brand-cyan">{m.title}</p>
+                  <p className="text-sm font-medium text-brand-ink">{m.role}</p>
                   {m.credentials && (
                     <p className="text-xs text-brand-muted">{m.credentials}</p>
                   )}
@@ -95,10 +101,6 @@ export default function Team() {
             </article>
           ))}
         </div>
-        <p className="mt-8 text-xs text-brand-muted">
-          Placeholder avatars. Headshots and full bios will be added as team
-          content is finalized.
-        </p>
       </Section>
 
       <CtaBanner
