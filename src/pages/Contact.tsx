@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Mail, Phone, Send, Clock } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
@@ -39,35 +39,35 @@ const interests: Exclude<Interest, "">[] = [
 
 export default function Contact() {
   const [form, setForm] = useState<FormState>(initial);
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [errorMsg, setErrorMsg] = useState<string>('');
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const update =
     <K extends keyof FormState>(key: K) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setForm((f) => ({ ...f, [key]: e.target.value as FormState[K] }));
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus('sending');
-    setErrorMsg('');
+    setStatus("sending");
+    setErrorMsg("");
     const formEl = e.currentTarget;
     const data = Object.fromEntries(new FormData(formEl).entries());
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || 'Failed to send');
+        throw new Error(body.error || "Failed to send");
       }
-      setStatus('success');
+      setStatus("success");
       setForm(initial);
     } catch (err) {
-      setErrorMsg(err instanceof Error ? err.message : 'Failed to send');
-      setStatus('error');
+      setErrorMsg(err instanceof Error ? err.message : "Failed to send");
+      setStatus("error");
     }
   }
 
@@ -151,8 +151,7 @@ export default function Contact() {
                 Send us a message
               </h2>
               <p className="mt-2 text-sm text-brand-muted">
-                Fill out the form below and we'll get back to you. Submission
-                opens your email client with the details pre-filled.
+                Fill out the form below and we'll get back to you within 1–2 business days.
               </p>
               <p className="mt-3 rounded-xl bg-brand-cyan/15 px-4 py-3 text-xs text-brand-ink">
                 <strong>Note:</strong> Do not include patient identifiers or
@@ -165,7 +164,7 @@ export default function Contact() {
                   tabIndex={-1}
                   autoComplete="off"
                   aria-hidden="true"
-                  style={{ position: 'absolute', left: '-9999px' }}
+                  style={{ position: "absolute", left: "-9999px" }}
                 />
                 <Field
                   id="name"
@@ -257,29 +256,35 @@ export default function Contact() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary mt-2" disabled={status === 'sending'}>
+                <button
+                  type="submit"
+                  className="btn-primary mt-2"
+                  disabled={status === "sending"}
+                >
                   <Send className="h-4 w-4" />
-                  {status === 'sending' ? 'Sending...' : 'Send request'}
+                  {status === "sending" ? "Sending…" : "Send request"}
                 </button>
 
-                {status === 'success' && (
-                  <div
+                {status === "success" && (
+                  <p
                     role="status"
                     aria-live="polite"
                     className="mt-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4 text-sm text-slate-300"
                   >
                     Thanks — we will be in touch shortly. — The Encountive team
-                  </div>
+                  </p>
                 )}
-                {status === 'error' && (
+
+                {status === "error" && (
                   <p
                     role="alert"
-                    className="mt-3 text-sm text-rose-400"
+                    className="mt-3 rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-300"
                   >
-                    {errorMsg} Please try again, or email{" "}
+                    {errorMsg || "Something went wrong."} Please try again, or
+                    email{" "}
                     <a
                       href="mailto:contact@encountive.com"
-                      className="font-semibold underline"
+                      className="font-semibold text-rose-200 underline"
                     >
                       contact@encountive.com
                     </a>{" "}
