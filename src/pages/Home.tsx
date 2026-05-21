@@ -9,6 +9,7 @@ import {
   LineChart,
   CheckCircle2,
   ArrowRight,
+  Quote,
 } from "lucide-react";
 import Section from "@/components/Section";
 import CtaBanner from "@/components/CtaBanner";
@@ -56,6 +57,12 @@ const differentiators = [
     title: "Evidence at scale",
     body: "Attempt histories, heatmaps of common misses, and time-to-competence insights you can use for QI and accreditation.",
   },
+];
+
+const whyNowStats = [
+  { value: "90%", label: "anticipate AI's major role in health care" },
+  { value: "79%", label: "feel excited to use AI in their work" },
+  { value: "under 15%", label: "feel proficient in core AI concepts" },
 ];
 
 const roiStats = [
@@ -159,6 +166,47 @@ export default function Home() {
               <p className="mt-3 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section align="center" eyebrow="Why now">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {whyNowStats.map((stat) => (
+              <div key={stat.label} className="card flex flex-col items-center text-center">
+                <span className="gradient-text font-display text-4xl font-extrabold md:text-5xl">
+                  {stat.value}
+                </span>
+                <p className="mt-3 text-sm text-brand-muted">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <figure className="card mt-8 text-center">
+            <Quote className="mx-auto h-10 w-10 text-brand-cyan/40" aria-hidden="true" />
+            <blockquote className="mt-6 font-display text-2xl font-bold leading-snug text-brand-ink md:text-3xl">
+              &ldquo;90% of students anticipated AI&rsquo;s major role in health
+              care and 79% felt excited to use it,{" "}
+              <span className="gradient-text">yet fewer than 15%</span> felt
+              proficient in core AI concepts.&rdquo;
+            </blockquote>
+            <figcaption className="mt-6 text-sm text-brand-muted">
+              <cite className="block font-semibold not-italic text-brand-ink">
+                The Lancet Regional Health — Americas
+              </cite>
+              <span className="mt-1 block">
+                &ldquo;AI literacy among healthcare professionals and students in
+                the Americas&rdquo;
+              </span>
+            </figcaption>
+          </figure>
+
+          <p className="mx-auto mt-8 max-w-2xl text-base text-brand-muted">
+            Healthcare learners expect AI to shape their careers — but most
+            don&rsquo;t yet feel ready to work with it. Encountive turns that gap
+            into structured, coached practice in clinical communication, scope,
+            and safety.
+          </p>
         </div>
       </Section>
 
