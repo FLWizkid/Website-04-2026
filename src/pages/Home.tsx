@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   ArrowRight,
   Quote,
+  Play,
 } from "lucide-react";
 import Section from "@/components/Section";
 import CtaBanner from "@/components/CtaBanner";
@@ -251,6 +252,28 @@ export default function Home() {
               <p className="mt-2 text-sm text-brand-muted">{body}</p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section align="center" eyebrow="See it in action">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="text-3xl font-bold text-brand-ink md:text-4xl">
+            Watch how Encountive transforms clinical learning
+          </h2>
+          <p className="mt-4 text-lg text-brand-muted">
+            See how our AI-adaptive engine coaches learners through realistic scenarios, identifies knowledge gaps in real time, and delivers measurable outcomes your institution can defend — all with the rigor clinical teams demand.
+          </p>
+          <div className="mt-8">
+            <a
+              href="https://www.youtube.com/watch?v=aAeJr9tXrGg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 rounded-xl bg-brand-gradient px-8 py-4 font-semibold text-white transition-all hover:shadow-lg hover:scale-105"
+            >
+              <Play className="h-5 w-5 fill-current" />
+              Watch the demo (2 min)
+            </a>
+          </div>
         </div>
       </Section>
 
