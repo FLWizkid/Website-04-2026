@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <!-- White background for contrast on dark browser tabs -->
-  <circle cx="60" cy="60" r="58" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- White background - tight fit -->
+  <circle cx="50" cy="50" r="50" fill="#FFFFFF"/>
 
-  <!-- Dark blue left circle -->
-  <circle cx="45" cy="50" r="32" fill="#0047A3"/>
+  <!-- Dark blue left circle - fills left half -->
+  <circle cx="35" cy="50" r="38" fill="#0047A3"/>
 
-  <!-- Teal right circle -->
-  <circle cx="75" cy="50" r="32" fill="#14B8A6"/>
+  <!-- Teal right circle - fills right half -->
+  <circle cx="65" cy="50" r="38" fill="#14B8A6"/>
 
-  <!-- Dark blue accent at bottom left -->
-  <circle cx="35" cy="80" r="18" fill="#001D47"/>
+  <!-- Dark blue accent - small detail -->
+  <circle cx="25" cy="75" r="14" fill="#001D47"/>
 </svg>
