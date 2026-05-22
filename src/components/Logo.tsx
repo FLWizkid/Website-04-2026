@@ -24,7 +24,7 @@ export default function Logo({ className, withTagline = true, size = "md" }: Log
         src="/logo-mark.svg"
         alt=""
         aria-hidden
-        className="h-9 w-9"
+        className="h-6 w-6"
       />
       <span className="flex flex-col leading-none">
         <span

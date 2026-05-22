@@ -1,13 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <!-- White background -->
-  <circle cx="60" cy="60" r="58" fill="#FFFFFF"/>
-
-  <!-- Dark blue left circle (larger, bolder) -->
-  <circle cx="45" cy="50" r="32" fill="#0047A3"/>
-
-  <!-- Teal right circle (larger, bolder) -->
-  <circle cx="75" cy="50" r="32" fill="#14B8A6"/>
-
-  <!-- Dark blue accent at bottom left -->
-  <circle cx="35" cy="80" r="18" fill="#001D47"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="#FFFFFF"/>
+  <circle cx="28" cy="40" r="20" fill="#0047A3"/>
+  <circle cx="72" cy="40" r="20" fill="#14B8A6"/>
+  <circle cx="30" cy="72" r="10" fill="#001D47"/>
 </svg>
