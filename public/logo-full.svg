@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200">
+  <!-- Mark portion -->
+  <g transform="translate(0, 0)">
+    <circle cx="100" cy="100" r="100" fill="#F0F9FE"/>
+    <circle cx="60" cy="45" r="18" fill="#001F4D"/>
+    <path d="M 40 70 Q 35 90 45 110 Q 55 125 75 130 Q 70 110 65 90 Q 62 75 60 60 Z" fill="#003D82"/>
+    <circle cx="140" cy="55" r="22" fill="#0EA5A5"/>
+    <path d="M 160 75 Q 165 95 155 120 Q 140 145 110 150 Q 125 125 130 100 Q 135 80 138 65 Z" fill="#14B8A6"/>
+    <path d="M 75 140 Q 90 155 110 158 Q 100 145 90 135 Z" fill="#0EA5A5"/>
+  </g>
+
+  <!-- Text portion -->
+  <text x="240" y="135" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="#001F4D" letter-spacing="-2">
+    Encountive
+  </text>
+</svg>

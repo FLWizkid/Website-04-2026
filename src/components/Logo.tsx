@@ -20,12 +20,12 @@ export default function Logo({ className, withTagline = true, size = "md" }: Log
       aria-label="Encountive home"
       className={cn("group inline-flex items-center gap-3", className)}
     >
-      <span
+      <img
+        src="/logo-mark.svg"
+        alt=""
         aria-hidden
-        className="relative grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient text-white shadow-soft"
-      >
-        <span className="font-display text-lg font-extrabold leading-none">E</span>
-      </span>
+        className="h-9 w-9"
+      />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
