@@ -37,40 +37,38 @@ const interests: Exclude<Interest, "">[] = [
   "Partnership",
 ];
 
-function buildMailto(f: FormState) {
-  const interest = f.interest || "General inquiry";
-  const subject = `[Encountive] ${interest} — ${f.organization || f.name || "Inquiry"}`;
-  const lines = [
-    `Name: ${f.name}`,
-    `Title: ${f.title}`,
-    `Organization: ${f.organization}`,
-    `Email: ${f.email}`,
-    f.phone ? `Phone: ${f.phone}` : null,
-    `Interested in: ${interest}`,
-    "",
-    "Message:",
-    f.message || "(no message provided)",
-  ].filter(Boolean);
-  const body = lines.join("\n");
-  return `mailto:contact@encountive.com?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(body)}`;
-}
-
 export default function Contact() {
   const [form, setForm] = useState<FormState>(initial);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const update =
     <K extends keyof FormState>(key: K) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setForm((f) => ({ ...f, [key]: e.target.value as FormState[K] }));
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const href = buildMailto(form);
-    window.location.href = href;
-    setSubmitted(true);
+    setStatus("sending");
+    setErrorMsg("");
+    const formEl = e.currentTarget;
+    const data = Object.fromEntries(new FormData(formEl).entries());
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || "Failed to send");
+      }
+      setStatus("success");
+      setForm(initial);
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Failed to send");
+      setStatus("error");
+    }
   }
 
   return (
@@ -153,8 +151,7 @@ export default function Contact() {
                 Send us a message
               </h2>
               <p className="mt-2 text-sm text-brand-muted">
-                Fill out the form below and we'll get back to you. Submission
-                opens your email client with the details pre-filled.
+                Fill out the form below and we'll get back to you within 1–2 business days.
               </p>
               <p className="mt-3 rounded-xl bg-brand-cyan/15 px-4 py-3 text-xs text-brand-ink">
                 <strong>Note:</strong> Do not include patient identifiers or
@@ -162,6 +159,13 @@ export default function Contact() {
               </p>
 
               <form onSubmit={onSubmit} className="mt-6 grid gap-4">
+                <input
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px" }}
+                />
                 <Field
                   id="name"
                   label="Full name"
@@ -252,29 +256,35 @@ export default function Contact() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary mt-2">
+                <button
+                  type="submit"
+                  className="btn-primary mt-2"
+                  disabled={status === "sending"}
+                >
                   <Send className="h-4 w-4" />
-                  Send request
+                  {status === "sending" ? "Sending…" : "Send request"}
                 </button>
 
-                {submitted && (
+                {status === "success" && (
                   <p
                     role="status"
                     aria-live="polite"
                     className="mt-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4 text-sm text-slate-300"
                   >
-                    Your email client should have opened with the details
-                    pre-filled. If it didn't,{" "}
-                    <a
-                      href={buildMailto(form)}
-                      className="font-semibold text-brand-cyan underline"
-                    >
-                      click here to open it
-                    </a>
-                    {" "}or email{" "}
+                    Thanks — we will be in touch shortly. — The Encountive team
+                  </p>
+                )}
+
+                {status === "error" && (
+                  <p
+                    role="alert"
+                    className="mt-3 rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-300"
+                  >
+                    {errorMsg || "Something went wrong."} Please try again, or
+                    email{" "}
                     <a
                       href="mailto:contact@encountive.com"
-                      className="font-semibold text-brand-cyan underline"
+                      className="font-semibold text-rose-200 underline"
                     >
                       contact@encountive.com
                     </a>{" "}
