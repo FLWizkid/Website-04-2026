@@ -7,7 +7,7 @@
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "app.encountive.com" }],
-      "destination": "https://vma-sim-spark.lovable.app/",
+      "destination": "https://encountive.com/",
       "permanent": false
     }
   ],
