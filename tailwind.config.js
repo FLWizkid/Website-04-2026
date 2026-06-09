@@ -29,26 +29,13 @@ export default {
         },
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
         display: ["Poppins", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       backgroundImage: {
-        "brand-gradient":
-          "linear-gradient(90deg, #22D3EE 0%, #6366F1 100%)",
-        "brand-gradient-soft":
-          "linear-gradient(135deg, rgba(34,211,238,0.14) 0%, rgba(99,102,241,0.14) 100%)",
-        "cyan-glow":
-          "radial-gradient(120% 80% at 50% 0%, rgba(34,211,238,0.22), transparent 60%)",
+        "brand-gradient": "linear-gradient(90deg, #22D3EE 0%, #6366F1 100%)",
+        "brand-gradient-soft": "linear-gradient(135deg, rgba(34,211,238,0.14) 0%, rgba(99,102,241,0.14) 100%)",
+        "cyan-glow": "radial-gradient(120% 80% at 50% 0%, rgba(34,211,238,0.22), transparent 60%)",
       },
       boxShadow: {
         soft: "0 10px 30px -12px rgba(0, 0, 0, 0.6)",

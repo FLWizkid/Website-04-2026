@@ -1,14 +1,8 @@
-import { useState, type FormEvent } from "react";
-import { Mail, Phone, Send, Clock } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle2, AlertCircle, Mail, Phone, Building2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
-
-type Interest =
-  | ""
-  | "Pilot"
-  | "Demo"
-  | "Academic License"
-  | "Partnership";
 
 type FormState = {
   name: string;
@@ -16,11 +10,21 @@ type FormState = {
   organization: string;
   email: string;
   phone: string;
-  interest: Interest;
+  interest: string;
   message: string;
+  website: string; // honeypot
 };
 
-const initial: FormState = {
+const interestOptions = [
+  "Hospital / health system pilot",
+  "Academic program pilot",
+  "Simulation center partnership",
+  "Workforce development",
+  "General inquiry",
+  "Investor / partnership",
+];
+
+const INITIAL: FormState = {
   name: "",
   title: "",
   organization: "",
@@ -28,46 +32,40 @@ const initial: FormState = {
   phone: "",
   interest: "",
   message: "",
+  website: "",
 };
 
-const interests: Exclude<Interest, "">[] = [
-  "Pilot",
-  "Demo",
-  "Academic License",
-  "Partnership",
-];
-
 export default function Contact() {
-  const [form, setForm] = useState<FormState>(initial);
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [form, setForm] = useState<FormState>(INITIAL);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const update =
-    <K extends keyof FormState>(key: K) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-      setForm((f) => ({ ...f, [key]: e.target.value as FormState[K] }));
+  const set = (field: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setForm((f) => ({ ...f, [field]: e.target.value }));
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("sending");
-    setErrorMsg("");
-    const formEl = e.currentTarget;
-    const data = Object.fromEntries(new FormData(formEl).entries());
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || "Failed to send");
-      }
-      setStatus("success");
-      setForm(initial);
-    } catch (err) {
-      setErrorMsg(err instanceof Error ? err.message : "Failed to send");
+    if (form.website) return; // honeypot
+
+    setStatus("submitting");
+    setErrorMsg(null);
+
+    const { error } = await supabase.from("contact_submissions").insert({
+      name: form.name,
+      title: form.title || null,
+      organization: form.organization || null,
+      email: form.email,
+      phone: form.phone || null,
+      interest: form.interest || null,
+      message: form.message,
+    });
+
+    if (error) {
       setStatus("error");
+      setErrorMsg(error.message);
+    } else {
+      setStatus("success");
+      setForm(INITIAL);
     }
   }
 
@@ -75,223 +73,177 @@ export default function Contact() {
     <>
       <PageHero
         eyebrow="Contact"
-        title={
-          <>
-            Let's discuss your{" "}
-            <span className="gradient-text">workforce readiness</span> goals
-          </>
-        }
-        subtitle="Have questions about Encountive, pilots, or implementation? We're here to help. We typically respond within 1–2 business days."
+        title="Contact us"
+        subtitle="For general inquiries, product questions, or to learn more about our pilots and partnerships."
       />
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-5">
-          <aside className="lg:col-span-2">
-            <div className="card h-full">
-              <h2 className="text-lg font-semibold text-brand-ink">Contact us</h2>
-              <p className="mt-2 text-sm text-brand-muted">
-                For general inquiries, product questions, or to learn more about
-                our pilots and partnerships.
-              </p>
-
-              <dl className="mt-6 space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <Mail className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" aria-hidden />
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
-                      Email
-                    </dt>
-                    <dd>
-                      <a
-                        href="mailto:contact@encountive.com"
-                        className="font-medium text-brand-ink hover:text-brand-cyan"
-                      >
-                        contact@encountive.com
-                      </a>
-                    </dd>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Phone className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" aria-hidden />
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
-                      Phone
-                    </dt>
-                    <dd>
-                      <a
-                        href="tel:+18134161641"
-                        className="font-medium text-brand-ink hover:text-brand-cyan"
-                      >
-                        (813) 416-1641
-                      </a>
-                    </dd>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Clock className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" aria-hidden />
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
-                      Response time
-                    </dt>
-                    <dd className="text-slate-300">1–2 business days</dd>
-                  </div>
-                </div>
-              </dl>
-
-              <p className="mt-6 text-xs text-brand-muted">
-                For procurement or implementation questions, please include
-                your institution name and timeline in your message.
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          {/* Info Panel */}
+          <div className="lg:col-span-2 space-y-6">
+            <div>
+              <h2 className="text-xl font-semibold text-white mb-3">Get in touch</h2>
+              <p className="text-brand-muted leading-relaxed">
+                For procurement or implementation questions, please include your institution name and timeline in your
+                message.
               </p>
             </div>
-          </aside>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 text-brand-ink">
+                <div className="w-9 h-9 rounded-xl bg-brand-gradient-soft flex items-center justify-center shrink-0">
+                  <Mail size={16} className="text-brand-cyan" />
+                </div>
+                <a href="mailto:contact@encountive.com" className="hover:text-brand-cyan transition-colors text-sm">
+                  contact@encountive.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3 text-brand-ink">
+                <div className="w-9 h-9 rounded-xl bg-brand-gradient-soft flex items-center justify-center shrink-0">
+                  <Building2 size={16} className="text-brand-cyan" />
+                </div>
+                <span className="text-sm text-brand-muted">Encountive, Inc.</span>
+              </div>
+              <div className="flex items-center gap-3 text-brand-ink">
+                <div className="w-9 h-9 rounded-xl bg-brand-gradient-soft flex items-center justify-center shrink-0">
+                  <Phone size={16} className="text-brand-cyan" />
+                </div>
+                <span className="text-sm text-brand-muted">Response within 1–2 business days</span>
+              </div>
+            </div>
+            <div className="rounded-xl border border-white/10 p-4 bg-brand-surface/30">
+              <p className="text-xs text-brand-muted leading-relaxed">
+                <strong className="text-brand-dim">Note:</strong> Do not include patient identifiers or PHI. This form
+                is for training and procurement discussions only.
+              </p>
+            </div>
+          </div>
 
+          {/* Form */}
           <div className="lg:col-span-3">
-            <div className="card">
-              <h2 className="text-lg font-semibold text-brand-ink">
-                Send us a message
-              </h2>
-              <p className="mt-2 text-sm text-brand-muted">
+            <div className="rounded-2xl border border-white/10 bg-brand-surface/30 p-8">
+              <h2 className="text-xl font-semibold text-white mb-6">Send us a message</h2>
+              <p className="text-sm text-brand-muted mb-6">
                 Fill out the form below and we'll get back to you within 1–2 business days.
               </p>
-              <p className="mt-3 rounded-xl bg-brand-cyan/15 px-4 py-3 text-xs text-brand-ink">
-                <strong>Note:</strong> Do not include patient identifiers or
-                PHI. This form is for training and procurement discussions only.
-              </p>
 
-              <form onSubmit={onSubmit} className="mt-6 grid gap-4">
-                <input
-                  name="website"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                  style={{ position: "absolute", left: "-9999px" }}
-                />
-                <Field
-                  id="name"
-                  label="Full name"
-                  value={form.name}
-                  onChange={update("name")}
-                  required
-                  autoComplete="name"
-                />
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Field
-                    id="title"
-                    label="Title"
-                    value={form.title}
-                    onChange={update("title")}
-                    autoComplete="organization-title"
-                  />
-                  <Field
-                    id="organization"
-                    label="Organization"
-                    value={form.organization}
-                    onChange={update("organization")}
-                    autoComplete="organization"
-                  />
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Field
-                    id="email"
-                    label="Work email"
-                    type="email"
-                    value={form.email}
-                    onChange={update("email")}
-                    required
-                    autoComplete="email"
-                  />
-                  <Field
-                    id="phone"
-                    label="Phone (optional)"
-                    type="tel"
-                    value={form.phone}
-                    onChange={update("phone")}
-                    autoComplete="tel"
-                    hint="Email is usually best for scheduling."
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="interest"
-                    className="block text-sm font-medium text-brand-ink"
-                  >
-                    Interested in
-                  </label>
-                  <select
-                    id="interest"
-                    name="interest"
-                    required
-                    value={form.interest}
-                    onChange={update("interest")}
-                    className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface-2 px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
-                  >
-                    <option value="" disabled>
-                      Select an option
-                    </option>
-                    {interests.map((i) => (
-                      <option key={i} value={i}>
-                        {i}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-brand-ink"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    value={form.message}
-                    onChange={update("message")}
-                    required
-                    className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface-2 px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
-                    placeholder="Tell us about your program, unit, or goals — no PHI, please."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="btn-primary mt-2"
-                  disabled={status === "sending"}
-                >
-                  <Send className="h-4 w-4" />
-                  {status === "sending" ? "Sending…" : "Send request"}
-                </button>
-
-                {status === "success" && (
-                  <p
-                    role="status"
-                    aria-live="polite"
-                    className="mt-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4 text-sm text-slate-300"
-                  >
+              {status === "success" ? (
+                <div className="flex items-start gap-3 rounded-xl border border-brand-cyan/30 bg-brand-cyan/5 p-5">
+                  <CheckCircle2 size={20} className="text-brand-cyan mt-0.5 shrink-0" />
+                  <p className="text-brand-ink">
                     Thanks — we will be in touch shortly. — The Encountive team
                   </p>
-                )}
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  {/* Honeypot */}
+                  <div className="sr-only" aria-hidden="true">
+                    <input tabIndex={-1} autoComplete="off" value={form.website} onChange={set("website")} />
+                  </div>
 
-                {status === "error" && (
-                  <p
-                    role="alert"
-                    className="mt-3 rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-300"
+                  {status === "error" && (
+                    <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/5 p-4">
+                      <AlertCircle size={18} className="text-red-400 mt-0.5 shrink-0" />
+                      <p className="text-sm text-red-300">
+                        {errorMsg || "Something went wrong."} Please try again, or email{" "}
+                        <a href="mailto:contact@encountive.com" className="underline">
+                          contact@encountive.com
+                        </a>{" "}
+                        directly.
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <Field label="Name *" hint="Required">
+                      <input
+                        type="text"
+                        required
+                        autoComplete="name"
+                        value={form.name}
+                        onChange={set("name")}
+                        className="form-input"
+                        placeholder="Your name"
+                      />
+                    </Field>
+                    <Field label="Title" hint="">
+                      <input
+                        type="text"
+                        autoComplete="organization-title"
+                        value={form.title}
+                        onChange={set("title")}
+                        className="form-input"
+                        placeholder="e.g. Director of Education"
+                      />
+                    </Field>
+                  </div>
+
+                  <Field label="Organization" hint="">
+                    <input
+                      type="text"
+                      autoComplete="organization"
+                      value={form.organization}
+                      onChange={set("organization")}
+                      className="form-input"
+                      placeholder="Hospital, university, or company name"
+                    />
+                  </Field>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <Field label="Email *" hint="Required">
+                      <input
+                        type="email"
+                        required
+                        autoComplete="email"
+                        value={form.email}
+                        onChange={set("email")}
+                        className="form-input"
+                        placeholder="you@organization.com"
+                      />
+                    </Field>
+                    <Field label="Phone" hint="">
+                      <input
+                        type="tel"
+                        autoComplete="tel"
+                        value={form.phone}
+                        onChange={set("phone")}
+                        className="form-input"
+                        placeholder="Optional"
+                      />
+                    </Field>
+                  </div>
+
+                  <Field label="Interested in" hint="">
+                    <select value={form.interest} onChange={set("interest")} className="form-input">
+                      <option value="">Select an option</option>
+                      {interestOptions.map((o) => (
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+
+                  <Field label="Message *" hint="Required">
+                    <textarea
+                      required
+                      rows={5}
+                      value={form.message}
+                      onChange={set("message")}
+                      className="form-input resize-none"
+                      placeholder="Tell us about your organization, training needs, or questions..."
+                      maxLength={5000}
+                    />
+                  </Field>
+
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="btn-primary w-full justify-center"
                   >
-                    {errorMsg || "Something went wrong."} Please try again, or
-                    email{" "}
-                    <a
-                      href="mailto:contact@encountive.com"
-                      className="font-semibold text-rose-200 underline"
-                    >
-                      contact@encountive.com
-                    </a>{" "}
-                    directly.
-                  </p>
-                )}
-              </form>
+                    {status === "submitting" ? "Sending…" : "Send message"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -300,43 +252,14 @@ export default function Contact() {
   );
 }
 
-type FieldProps = {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-  type?: string;
-  autoComplete?: string;
-  hint?: string;
-};
-
-function Field({
-  id,
-  label,
-  value,
-  onChange,
-  required,
-  type = "text",
-  autoComplete,
-  hint,
-}: FieldProps) {
+function Field({ label, hint, children }: { label: string; hint: string; children: React.ReactNode }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-brand-ink">
+      <label className="block text-sm font-medium text-brand-ink mb-1.5">
         {label}
+        {hint && <span className="sr-only">{hint}</span>}
       </label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        value={value}
-        onChange={onChange}
-        required={required}
-        autoComplete={autoComplete}
-        className="mt-1 block w-full rounded-xl border border-white/15 bg-brand-surface-2 px-4 py-3 text-sm text-brand-ink focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/30"
-      />
-      {hint && <p className="mt-1 text-xs text-brand-muted">{hint}</p>}
+      {children}
     </div>
   );
 }

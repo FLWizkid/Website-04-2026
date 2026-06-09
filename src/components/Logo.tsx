@@ -1,46 +1,14 @@
-import { Link } from "react-router-dom";
-import { cn } from "@/lib/cn";
-
-type LogoProps = {
-  className?: string;
-  withTagline?: boolean;
-  size?: "sm" | "md" | "lg";
-};
-
-const sizeMap = {
-  sm: "text-lg",
-  md: "text-xl",
-  lg: "text-2xl",
-};
-
-export default function Logo({ className, withTagline = true, size = "md" }: LogoProps) {
+export default function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link
-      to="/"
-      aria-label="Encountive home"
-      className={cn("group inline-flex items-center gap-3", className)}
-    >
-      <img
-        src="/logo-mark.svg"
-        alt=""
-        aria-hidden
-        className="h-8 w-8"
-      />
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "font-display font-extrabold tracking-tight gradient-text",
-            sizeMap[size]
-          )}
-        >
-          Encountive
-        </span>
-        {withTagline && (
-          <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-brand-muted">
-            AI Encounter Training
-          </span>
-        )}
+    <span className={`inline-flex items-center gap-2 font-display font-semibold text-white ${className}`}>
+      <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white ring-2 ring-white/60 shadow-md flex-shrink-0">
+        <img
+          src="/Small_logo_smaller.png"
+          alt="Encountive logo"
+          className="w-7 h-7 object-contain"
+        />
       </span>
-    </Link>
+      <span>Encountive</span>
+    </span>
   );
 }

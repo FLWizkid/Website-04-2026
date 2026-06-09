@@ -32,42 +32,16 @@ export default function Section({
   align = "left",
 }: SectionProps) {
   return (
-    <section id={id} className={cn("py-16 md:py-24", toneClasses[tone], className)}>
-      <div className={cn("container-xl", innerClassName)}>
+    <section id={id} className={cn("py-12 sm:py-16 md:py-20", toneClasses[tone], className)}>
+      <div className={cn("container-xl mx-auto", innerClassName)}>
         {(eyebrow || title || subtitle) && (
-          <div
-            className={cn(
-              "mb-10 max-w-3xl",
-              align === "center" && "mx-auto text-center"
-            )}
-          >
-            {eyebrow && (
-              <p
-                className={cn(
-                  "eyebrow",
-                  tone === "gradient" && "text-white/80"
-                )}
-              >
-                {eyebrow}
-              </p>
-            )}
+          <div className={cn("mb-8 sm:mb-10 md:mb-12", align === "center" ? "text-center" : "")}>
+            {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
             {title && (
-              <h2
-                className={cn(
-                  "mt-3 text-3xl font-bold md:text-4xl",
-                  tone === "gradient" ? "text-white" : "text-white"
-                )}
-              >
-                {title}
-              </h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold leading-tight mb-4">{title}</h2>
             )}
             {subtitle && (
-              <p
-                className={cn(
-                  "mt-4 text-base md:text-lg",
-                  tone === "gradient" ? "text-white/85" : "text-brand-muted"
-                )}
-              >
+              <p className={cn("text-brand-muted text-base md:text-lg leading-relaxed", align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl")}>
                 {subtitle}
               </p>
             )}

@@ -9,7 +9,6 @@ import {
   LineChart,
   CheckCircle2,
   ArrowRight,
-  Quote,
   Play,
 } from "lucide-react";
 import Section from "@/components/Section";
@@ -95,246 +94,194 @@ const beforeAfter = [
 export default function Home() {
   return (
     <>
-      <section className="hero-glow">
-        <div className="container-xl grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:items-center">
-          <div className="animate-fade-up lg:col-span-7">
-            <p className="eyebrow">AI-adaptive clinical simulation</p>
-            <h1 className="mt-3 text-4xl font-extrabold leading-tight text-brand-ink md:text-5xl lg:text-6xl">
-              AI-Powered Clinical Simulation for{" "}
-              <span className="gradient-text">Safer, More Confident</span>{" "}
-              Healthcare Teams
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-brand-muted md:text-xl">
-              Encountive improves communication, decision-making, emotional
-              resilience, and clinical safety across the healthcare workforce.
-              Powered by The Encountive Engine, your adaptive clinical
-              intelligence engine.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn-primary">
-                Plan a pilot <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/product" className="btn-secondary">
-                About the product
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-brand-surface-2 p-8 shadow-soft">
-              <div
-                aria-hidden
-                className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-brand-gradient opacity-20 blur-3xl"
-              />
-              <p className="eyebrow">The Encountive Engine</p>
-              <h2 className="mt-2 text-xl font-bold text-brand-ink">
-                Scenario → coaching → evidence, at scale
-              </h2>
-              <ul className="mt-6 space-y-4 text-sm">
-                {[
-                  "Branching scenarios anchored to your rubrics",
-                  "Immediate, targeted coaching after every attempt",
-                  "Cohort-level analytics leaders can defend",
-                  "Web and mobile today; XR when immersion matters",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
-                    <span className="text-slate-300">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* Hero */}
+      <div className="hero-glow pt-36 pb-24">
+        <div className="container-xl mx-auto">
+          <p className="eyebrow mb-4 animate-fade-up">AI-adaptive clinical simulation</p>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-3xl animate-fade-up [animation-delay:0.1s]">
+            AI-Powered Clinical Simulation for{" "}
+            <span className="gradient-text">Safer, More Confident</span>{" "}
+            Healthcare Teams
+          </h1>
+          <p className="text-brand-muted text-xl leading-relaxed max-w-2xl mb-10 animate-fade-up [animation-delay:0.2s]">
+            Encountive improves communication, decision-making, emotional resilience, and clinical safety across the
+            healthcare workforce. Powered by The Encountive Engine, your adaptive clinical intelligence engine.
+          </p>
+          <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:0.3s]">
+            <Link to="/contact" className="btn-primary">
+              Plan a pilot <ArrowRight size={16} />
+            </Link>
+            <Link to="/product" className="btn-secondary">
+              About the product
+            </Link>
           </div>
         </div>
-      </section>
+      </div>
 
+      {/* Engine Overview */}
       <Section
+        eyebrow="The Encountive Engine"
+        title="Scenario → coaching → evidence, at scale"
         tone="muted"
-        eyebrow="Who it's for"
-        title="Built for the teams delivering care and the programs training them"
-        subtitle="We're designing Encountive around real deployment realities: faculty workloads, review-ready reporting, and scope-aware practice."
       >
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {[
+            "Branching scenarios anchored to your rubrics",
+            "Immediate, targeted coaching after every attempt",
+            "Cohort-level analytics leaders can defend",
+            "Web and mobile today; XR when immersion matters",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-3">
+              <CheckCircle2 size={18} className="text-brand-cyan mt-0.5 shrink-0" />
+              <span className="text-brand-ink">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {audiences.map(({ icon: Icon, title, subtitle, body }) => (
-            <div key={title} className="card flex h-full flex-col">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/15">
-                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
+            <div key={title} className="card">
+              <div className="w-10 h-10 rounded-xl bg-brand-gradient-soft flex items-center justify-center mb-4">
+                <Icon size={20} className="text-brand-cyan" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="text-xs font-medium uppercase tracking-wider text-brand-muted">
-                {subtitle}
-              </p>
-              <p className="mt-3 text-sm text-brand-muted">{body}</p>
+              <h3 className="font-semibold text-white mb-1">{title}</h3>
+              <p className="text-xs text-brand-cyan mb-2">{subtitle}</p>
+              <p className="text-sm text-brand-muted leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section align="center" eyebrow="Why now">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {whyNowStats.map((stat) => (
-              <div key={stat.label} className="card flex flex-col items-center text-center">
-                <span className="gradient-text font-display text-4xl font-extrabold md:text-5xl">
-                  {stat.value}
-                </span>
-                <p className="mt-3 text-sm text-brand-muted">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+      {/* Why Now */}
+      <Section eyebrow="Why now" title="The AI readiness gap in healthcare">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          {whyNowStats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-4xl font-bold gradient-text mb-2">{stat.value}</p>
+              <p className="text-brand-muted text-sm">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-          <figure className="card mt-8 text-center">
-            <Quote className="mx-auto h-10 w-10 text-brand-cyan/40" aria-hidden="true" />
-            <blockquote className="mt-6 font-display text-2xl font-bold leading-snug text-brand-ink md:text-3xl">
-              &ldquo;90% of students anticipated AI&rsquo;s major role in health
-              care and 79% felt excited to use it,{" "}
-              <span className="gradient-text">yet fewer than 15%</span> felt
-              proficient in core AI concepts.&rdquo;
+      {/* Lancet Quote */}
+      <Section>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl bg-[#1a1535] border border-white/10 p-6 sm:p-8 md:p-12 mb-6 sm:mb-8">
+            <div className="text-brand-cyan text-4xl sm:text-5xl font-bold leading-none mb-5 sm:mb-6 text-center select-none">"</div>
+            <blockquote className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight text-center">
+              "90% of students anticipated AI's major role in health care and 79% felt excited to use it,{" "}
+              <span className="text-brand-cyan">yet fewer than 15% felt proficient in core AI concepts.</span>"
             </blockquote>
-            <figcaption className="mt-6 text-sm text-brand-muted">
-              <cite className="block font-semibold not-italic text-brand-ink">
-                The Lancet Regional Health — Americas
-              </cite>
-              <span className="mt-1 block">
-                &ldquo;AI literacy among healthcare professionals and students in
-                the Americas&rdquo;
-              </span>
-            </figcaption>
-          </figure>
-
-          <p className="mx-auto mt-8 max-w-2xl text-base text-brand-muted">
-            Healthcare learners expect AI to shape their careers — but most
-            don&rsquo;t yet feel ready to work with it. Encountive turns that gap
-            into structured, coached practice in clinical communication, scope,
-            and safety.
+            <div className="mt-6 sm:mt-8 text-center">
+              <p className="text-white font-bold text-sm tracking-wide">The Lancet Regional Health — Americas</p>
+              <p className="text-brand-muted text-xs mt-1">"AI literacy among healthcare professionals and students in the Americas"</p>
+            </div>
+          </div>
+          <p className="text-brand-muted text-base leading-relaxed">
+            Healthcare learners expect AI to shape their careers — but most don't yet feel ready to work with it.
+            Encountive turns that gap into structured, coached practice in clinical communication, scope, and safety.
           </p>
         </div>
       </Section>
 
+      {/* Before / After */}
       <Section
-        eyebrow="What could change"
-        title="When Encountive is in the loop"
-        subtitle="A glimpse of the shift we're designing for — from inconsistent practice to evidence your leaders can defend."
-      >
-        <div className="overflow-hidden rounded-2xl border border-white/10">
-          <div className="grid grid-cols-1 bg-white/5 text-xs font-semibold uppercase tracking-widest text-brand-muted md:grid-cols-2">
-            <div className="px-6 py-4">Before</div>
-            <div className="hidden px-6 py-4 md:block">Potential outcomes</div>
-          </div>
-          <ul className="divide-y divide-white/10 bg-brand-surface-2">
-            {beforeAfter.map((row, idx) => (
-              <li key={idx} className="grid grid-cols-1 md:grid-cols-2">
-                <div className="border-r border-white/10 p-6 text-brand-muted">
-                  {row.before}
-                </div>
-                <div className="bg-brand-cyan/15 p-6 text-brand-ink">
-                  <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-brand-cyan md:hidden">
-                    Potential outcome
-                  </span>
-                  {row.after}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      <Section
+        eyebrow="The difference"
+        title="From anecdotes to evidence"
         tone="muted"
-        eyebrow="Why it's different"
-        title="Practice that's safe, coached, and grown"
       >
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4">
+          {beforeAfter.map((row, idx) => (
+            <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-2xl border border-white/10 overflow-hidden">
+              <div className="p-5 bg-black/20">
+                <p className="text-xs text-brand-muted uppercase tracking-widest mb-2">Before</p>
+                <p className="text-brand-ink flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-muted mt-2 shrink-0" />
+                  {row.before}
+                </p>
+              </div>
+              <div className="p-5 bg-brand-gradient-soft">
+                <p className="text-xs text-brand-cyan uppercase tracking-widest mb-2">Potential outcome</p>
+                <p className="text-white flex items-start gap-2">
+                  <CheckCircle2 size={14} className="text-brand-cyan mt-1 shrink-0" />
+                  {row.after}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Differentiators */}
+      <Section eyebrow="How it works" title="Built differently">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {differentiators.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="card h-full">
-              <Icon className="h-6 w-6 text-brand-cyan" aria-hidden />
-              <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-brand-muted">{body}</p>
+            <div key={title} className="card">
+              <div className="w-10 h-10 rounded-xl bg-brand-gradient-soft flex items-center justify-center mb-4">
+                <Icon size={20} className="text-brand-cyan" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">{title}</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section align="center" eyebrow="See it in action">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-bold text-brand-ink md:text-4xl">
-            Watch how Encountive transforms clinical learning
-          </h2>
-          <p className="mt-4 text-lg text-brand-muted">
-            See how our AI-adaptive engine coaches learners through realistic scenarios, identifies knowledge gaps in real time, and delivers measurable outcomes your institution can defend — all with the rigor clinical teams demand.
-          </p>
-          <div className="mt-8">
-            <a
-              href="https://www.youtube.com/watch?v=aAeJr9tXrGg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-xl bg-brand-gradient px-8 py-4 font-semibold text-white transition-all hover:shadow-lg hover:scale-105"
-            >
-              <Play className="h-5 w-5 fill-current" />
-              Watch the demo (2 min)
-            </a>
-          </div>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Projected ROI outcomes"
-        title="Savings leaders can model before day one"
-        subtitle="Based on modeled potential outcomes and academic program implementations. Full assumptions on our ROI page."
-      >
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {roiStats.map((stat) => (
-            <div
-              key={stat.label}
-              className="card flex h-full flex-col items-start"
-            >
-              <span className="gradient-text text-3xl font-extrabold md:text-4xl">
-                {stat.value}
-              </span>
-              <p className="mt-3 text-sm text-brand-muted">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8">
-          <Link
-            to="/roi"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:text-brand-amber"
+      {/* Demo Video */}
+      <Section eyebrow="Demo" title="Watch how Encountive transforms clinical learning" align="center" tone="muted">
+        <p className="text-brand-muted text-lg leading-relaxed max-w-2xl mx-auto mb-8 text-center">
+          See how our AI-adaptive engine coaches learners through realistic scenarios, identifies knowledge gaps in real
+          time, and delivers measurable outcomes your institution can defend — all with the rigor clinical teams demand.
+        </p>
+        <div className="flex justify-center">
+          <a
+            href="https://www.youtube.com/watch?v=aAeJr9tXrGg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
           >
-            See the full ROI breakdown <ArrowRight className="h-4 w-4" />
+            <Play size={16} />
+            Watch the demo (2 min)
+          </a>
+        </div>
+      </Section>
+
+      {/* ROI Stats */}
+      <Section eyebrow="Results" title="Outcomes that matter">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+          {roiStats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-3xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</p>
+              <p className="text-brand-muted text-sm">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <div className="text-center">
+          <Link to="/roi" className="btn-secondary">
+            See the full ROI breakdown <ArrowRight size={16} />
           </Link>
         </div>
       </Section>
 
-      <Section
-        tone="muted"
-        eyebrow="Early traction"
-        title="Early, on purpose"
-      >
-        <div className="grid gap-5 md:grid-cols-2">
+      {/* Pilot Info */}
+      <Section tone="muted">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="card">
-            <h3 className="text-lg font-semibold text-brand-ink">
-              In development with clinical experts
-            </h3>
-            <p className="mt-2 text-sm text-brand-muted">
-              We're building Encountive with simulation educators, nurse leaders,
-              and academic programs — so scenarios, rubrics, and evidence match
-              how your teams actually work.
+            <h3 className="font-semibold text-white mb-3">In development with clinical experts</h3>
+            <p className="text-sm text-brand-muted leading-relaxed">
+              We're building Encountive with simulation educators, nurse leaders, and academic programs — so scenarios,
+              rubrics, and evidence match how your teams actually work.
             </p>
           </div>
           <div className="card">
-            <h3 className="text-lg font-semibold text-brand-ink">
-              Preparing pilots — limited spots
-            </h3>
-            <p className="mt-2 text-sm text-brand-muted">
-              We run scoped 60–90 day pilots with baseline-to-post measurement,
-              conversion terms on success, and evaluation reports suitable for QI
-              and credentialing.
+            <h3 className="font-semibold text-white mb-3">Preparing pilots — limited spots</h3>
+            <p className="text-sm text-brand-muted leading-relaxed mb-4">
+              We run scoped 60–90 day pilots with baseline-to-post measurement, conversion terms on success, and
+              evaluation reports suitable for QI and credentialing.
             </p>
-            <Link
-              to="/contact"
-              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:text-brand-amber"
-            >
-              Plan a pilot <ArrowRight className="h-4 w-4" />
+            <Link to="/contact" className="btn-primary text-sm">
+              Plan a pilot <ArrowRight size={14} />
             </Link>
           </div>
         </div>

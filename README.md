@@ -1,6 +1,3 @@
-# Website-04-2026
-Website work
+# Encountive-Main-page
 
-## Environment Variables
-
-- `RESEND_API_KEY` - Resend API key for the contact form. Required in Vercel for production. Generated in the Resend dashboard after the encountive domain is verified.
+[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-d3fpbkv1)

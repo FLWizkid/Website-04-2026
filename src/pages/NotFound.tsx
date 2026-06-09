@@ -1,25 +1,20 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <section className="hero-glow">
-      <div className="container-xl py-24 text-center">
+    <div className="hero-glow min-h-screen flex items-center justify-center">
+      <div className="text-center space-y-6">
         <p className="eyebrow">404</p>
-        <h1 className="mt-3 text-4xl font-extrabold text-brand-ink md:text-5xl">
-          That page is off the beaten path.
-        </h1>
-        <p className="mt-4 text-lg text-brand-muted">
-          Let's get you back to something useful.
+        <h1 className="text-5xl font-bold text-white">Page not found</h1>
+        <p className="text-brand-muted text-lg max-w-sm mx-auto">
+          The page you're looking for doesn't exist or has been moved.
         </p>
-        <div className="mt-8 flex justify-center gap-3">
-          <Link to="/" className="btn-primary">
-            Back to home
-          </Link>
-          <Link to="/contact" className="btn-secondary">
-            Contact us
-          </Link>
-        </div>
+        <Link to="/" className="btn-primary inline-flex">
+          <ArrowLeft size={16} />
+          Back to home
+        </Link>
       </div>
-    </section>
+    </div>
   );
 }

@@ -16,16 +16,8 @@ const NAV: NavItem[] = [
   {
     label: "Solutions",
     children: [
-      {
-        label: "Healthcare",
-        to: "/solutions/healthcare",
-        description: "Hospitals, clinics, hospices",
-      },
-      {
-        label: "Academic",
-        to: "/solutions/academic",
-        description: "Vocational programs & sim centers",
-      },
+      { label: "Healthcare", to: "/solutions/healthcare", description: "Hospitals, clinics, hospices" },
+      { label: "Academic", to: "/solutions/academic", description: "Vocational programs & sim centers" },
     ],
   },
   { label: "ROI", to: "/roi" },
@@ -63,141 +55,127 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full border-b transition-colors",
+        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-white/10 bg-brand-bg/80 backdrop-blur"
-          : "border-transparent bg-brand-bg/60 backdrop-blur-sm"
+          ? "bg-brand-bg/95 backdrop-blur-md border-b border-white/10 shadow-soft"
+          : "bg-brand-bg/80 backdrop-blur-sm border-b border-white/5"
       )}
     >
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-md focus:bg-brand-surface focus:px-3 focus:py-2 focus:text-brand-cyan focus:shadow-soft"
-      >
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 btn-primary text-sm">
         Skip to main content
       </a>
-      <div className="container-xl flex h-16 items-center justify-between">
-        <Logo />
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {NAV.map((item) => {
-            if (item.children) {
-              const activeChild = item.children.some((c) =>
-                location.pathname.startsWith(c.to)
-              );
-              return (
-                <div key={item.label} ref={solutionsRef} className="relative">
-                  <button
-                    type="button"
-                    aria-haspopup="true"
-                    aria-expanded={solutionsOpen}
-                    onClick={() => setSolutionsOpen((o) => !o)}
-                    className={cn(
-                      "inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                      activeChild
-                        ? "text-brand-cyan"
-                        : "text-slate-300 hover:text-brand-cyan"
-                    )}
-                  >
-                    {item.label}
-                    <ChevronDown
-                      className={cn(
-                        "h-4 w-4 transition-transform",
-                        solutionsOpen && "rotate-180"
-                      )}
-                    />
-                  </button>
-                  {solutionsOpen && (
-                    <div
-                      role="menu"
-                      className="absolute left-1/2 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-white/10 bg-brand-surface/95 p-2 shadow-soft backdrop-blur"
-                    >
-                      {item.children.map((c) => (
-                        <Link
-                          key={c.to}
-                          to={c.to}
-                          role="menuitem"
-                          className="block rounded-xl px-3 py-2 hover:bg-white/5"
-                        >
-                          <div className="text-sm font-semibold text-brand-ink">
-                            {c.label}
-                          </div>
-                          {c.description && (
-                            <div className="text-xs text-brand-muted">
-                              {c.description}
-                            </div>
-                          )}
-                        </Link>
-                      ))}
-                    </div>
+      <div className="container-xl mx-auto flex h-16 items-center justify-between gap-6">
+        {/* Logo */}
+        <Link to="/" aria-label="Encountive home">
+          <Logo />
+        </Link>
+
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+          {NAV.map((item) =>
+            item.children ? (
+              <div key={item.label} ref={solutionsRef} className="relative">
+                <button
+                  onClick={() => setSolutionsOpen((o) => !o)}
+                  aria-expanded={solutionsOpen}
+                  className={cn(
+                    "flex items-center gap-1 px-3 py-2.5 min-h-[44px] rounded-lg text-sm font-medium transition-colors",
+                    solutionsOpen ? "text-brand-cyan" : "text-white hover:text-brand-cyan"
                   )}
-                </div>
-              );
-            }
-            return (
+                >
+                  {item.label}
+                  <ChevronDown
+                    size={14}
+                    className={cn("transition-transform", solutionsOpen && "rotate-180")}
+                  />
+                </button>
+
+                {solutionsOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-56 rounded-xl border border-white/10 bg-brand-surface shadow-soft py-2 animate-fade-up">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        className="block px-4 py-3 min-h-[44px] hover:bg-white/5 transition-colors"
+                      >
+                        <span className="block text-sm font-medium text-white">{child.label}</span>
+                        {child.description && (
+                          <span className="block text-xs text-brand-muted mt-0.5">{child.description}</span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
               <NavLink
                 key={item.to}
                 to={item.to!}
                 end={item.to === "/"}
                 className={({ isActive }) =>
                   cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    isActive
-                      ? "text-brand-cyan"
-                      : "text-slate-300 hover:text-brand-cyan"
+                    "px-3 py-2.5 min-h-[44px] flex items-center rounded-lg text-sm font-medium transition-colors",
+                    isActive ? "text-brand-cyan" : "text-white hover:text-brand-cyan"
                   )
                 }
               >
                 {item.label}
               </NavLink>
-            );
-          })}
+            )
+          )}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        {/* Desktop CTAs */}
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href="https://app.encountive.com"
             target="_blank"
-            rel="noreferrer"
-            className="btn-ghost"
+            rel="noopener noreferrer"
+            className="btn-ghost text-sm min-h-[44px]"
           >
             Login
           </a>
-          <Link to="/contact" className="btn-ghost">
+          <Link to="/contact" className="btn-secondary text-sm min-h-[44px]">
             Contact
           </Link>
-          <Link to="/contact" className="btn-primary">
+          <Link to="/contact" className="btn-primary text-sm min-h-[44px]">
             Plan a pilot
           </Link>
         </div>
 
+        {/* Mobile hamburger */}
         <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-brand-surface/80 text-slate-200 lg:hidden"
+          className="lg:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-white hover:text-brand-cyan transition-colors"
+          onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((o) => !o)}
         >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-brand-bg/95 backdrop-blur lg:hidden">
-          <nav aria-label="Mobile" className="container-xl flex flex-col gap-1 py-4">
+        <div className="lg:hidden border-t border-white/10 bg-brand-bg/98 backdrop-blur-md pb-6 animate-fade-up">
+          <nav className="container-xl mx-auto flex flex-col gap-1 pt-4">
             {NAV.map((item) =>
               item.children ? (
-                <div key={item.label} className="py-1">
-                  <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-brand-muted">
+                <div key={item.label}>
+                  <p className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-brand-muted">
                     {item.label}
-                  </div>
-                  {item.children.map((c) => (
-                    <NavLink
-                      key={c.to}
-                      to={c.to}
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-slate-300 hover:bg-white/5"
+                  </p>
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.to}
+                      to={child.to}
+                      className="block px-5 py-3 min-h-[44px] text-sm text-white hover:text-brand-cyan transition-colors"
                     >
-                      {c.label}
-                    </NavLink>
+                      {child.label}
+                      {child.description && (
+                        <span className="block text-xs text-brand-muted mt-0.5">{child.description}</span>
+                      )}
+                    </Link>
                   ))}
                 </div>
               ) : (
@@ -207,10 +185,8 @@ export default function Header() {
                   end={item.to === "/"}
                   className={({ isActive }) =>
                     cn(
-                      "rounded-lg px-3 py-2 text-sm font-medium",
-                      isActive
-                        ? "bg-white/5 text-brand-cyan"
-                        : "text-slate-300 hover:bg-white/5"
+                      "block px-3 py-3 min-h-[44px] rounded-lg text-sm font-medium transition-colors",
+                      isActive ? "text-brand-cyan" : "text-white hover:text-brand-cyan"
                     )
                   }
                 >
@@ -218,19 +194,17 @@ export default function Header() {
                 </NavLink>
               )
             )}
-            <div className="mt-2 flex flex-col gap-2 px-2">
+
+            <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-white/10">
               <a
                 href="https://app.encountive.com"
                 target="_blank"
-                rel="noreferrer"
-                className="btn-secondary"
+                rel="noopener noreferrer"
+                className="btn-secondary w-full justify-center min-h-[48px]"
               >
                 Login
               </a>
-              <Link to="/contact" className="btn-secondary">
-                Contact
-              </Link>
-              <Link to="/contact" className="btn-primary">
+              <Link to="/contact" className="btn-primary w-full justify-center min-h-[48px]">
                 Plan a pilot
               </Link>
             </div>

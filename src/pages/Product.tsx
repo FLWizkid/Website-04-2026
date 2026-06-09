@@ -1,91 +1,70 @@
 import { Link } from "react-router-dom";
 import {
-  Brain,
-  ClipboardList,
-  MessagesSquare,
+  Cpu,
+  GitBranch,
   BarChart3,
-  Layers,
-  Boxes,
+  Smartphone,
+  ShieldCheck,
   BookOpen,
-  Gauge,
   CheckCircle2,
   ArrowRight,
+  Layers,
+  Zap,
 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import CtaBanner from "@/components/CtaBanner";
 
-const steps = [
+const coreFeatures = [
   {
-    icon: MessagesSquare,
-    title: "1. Scenario practice",
-    body: "Simulated patient and persona encounters mirror real clinical calls and branch when learners miss safety gates or hit escalation triggers.",
+    icon: GitBranch,
+    title: "Branching scenario engine",
+    body: "Every scenario adapts to learner responses in real time. Branching logic ensures each path teaches the consequence of clinical decisions.",
   },
   {
-    icon: ClipboardList,
-    title: "2. Automated scoring",
-    body: "Every action and documentation entry is audited against scope and safety rubrics. The system flags misses like skipped identity checks or out-of-scope advice.",
-  },
-  {
-    icon: Brain,
-    title: "3. Targeted coaching",
-    body: "Learners get immediate feedback and adaptive follow-ups — microlearning or retry with adjusted difficulty — to close specific gaps.",
+    icon: Zap,
+    title: "Immediate adaptive coaching",
+    body: "After every attempt, learners receive targeted, rubric-anchored feedback — not a generic score. The system identifies the specific gap and responds.",
   },
   {
     icon: BarChart3,
-    title: "4. Evidence & analytics",
-    body: "Dashboards and exports show competency progress, attempt history, and objective scores for compliance and program QA.",
+    title: "Cohort-level analytics",
+    body: "Attempt histories, heatmaps of common misses, time-to-competence curves, and rubric delta views — all exportable for QI and accreditation.",
+  },
+  {
+    icon: Cpu,
+    title: "The Encountive Engine",
+    body: "Our proprietary AI orchestrates scenario flow, coaching logic, remediation sequencing, and evidence generation in a single integrated system.",
+  },
+  {
+    icon: Layers,
+    title: "Modular scenario library",
+    body: "Pre-built scenarios for clinical communication, deterioration, medication safety, handoffs, and more — with customization for your rubrics and protocols.",
+  },
+  {
+    icon: Smartphone,
+    title: "Any device, any time",
+    body: "Web and mobile for broad reach. XR modules available when immersion truly moves the needle — plug in where it matters.",
   },
 ];
 
-const modules = [
+const xrCapabilities = [
+  "Phone-based AR/VR for hands-on procedural skills",
+  "Mastery rules and telemetry integrated with the core engine",
+  "Designed to complement, not replace, web and mobile practice",
+  "Scenario continuity across modalities — learner progress follows them",
+];
+
+const governance = [
   {
-    icon: Layers,
-    title: "Encountive Sim",
-    body: "Adaptive scenario engine with branching logic, scope guardrails, and rubric-based scoring.",
+    icon: ShieldCheck,
+    title: "Instructional, non-clinical",
+    body: "Content is aligned to delegated duties and scope. No diagnosis or treatment training — designed with clinical governance in mind.",
   },
   {
     icon: BookOpen,
-    title: "Encountive Learn",
-    body: "Microlearning modules automatically served to close specific competency gaps surfaced in sim.",
-  },
-  {
-    icon: MessagesSquare,
-    title: "Encountive Tutor",
-    body: "AI-guided coaching with structured debrief so every attempt turns into targeted growth.",
-  },
-  {
-    icon: Gauge,
-    title: "Encountive Analytics",
-    body: "Evidence and insights: completion, repeats, rubric deltas, cohort views, time-to-competence.",
-  },
-];
-
-const workflows = [
-  "Virtual rooming and identity verification",
-  "Consent and privacy confirmation",
-  "Red-flag recognition and scope-aware escalation",
-  "Documentation fidelity in the EHR",
-  "Remote HIPAA behaviors",
-  "Team communication and handoffs",
-];
-
-const differentiators = [
-  {
-    title: "Scope guardrails built-in",
-    body: "Scenario logic prevents or flags out-of-scope actions — purpose-built for MA, allied health, and expanding role boundaries.",
-  },
-  {
-    title: "Rubric-based automation",
-    body: "Objective, repeatable scoring of workflow steps and documentation fidelity. No scarce human evaluators required.",
-  },
-  {
-    title: "Adaptive remediation",
-    body: "The system selects the next best scenario and micro-coaching based on each learner's error pattern.",
-  },
-  {
-    title: "Evidence first",
-    body: "Everything is logged for outcomes reporting and improvement cycles — and survives committee review.",
+    title: "CE-ready process templates",
+    body: "For accredited providers (NCPD / Joint Accreditation) and recordkeeping. Objectives, time-on-task, and assessment blueprints included.",
   },
 ];
 
@@ -93,151 +72,82 @@ export default function Product() {
   return (
     <>
       <PageHero
-        eyebrow="Product"
+        eyebrow="The Product"
         title={
           <>
-            The Complete{" "}
-            <span className="gradient-text">Adaptive Clinical Learning</span>{" "}
-            Platform
+            The <span className="gradient-text">Encountive Engine</span> — adaptive clinical intelligence
           </>
         }
-        subtitle="Encountive is an AI-native simulation platform that coaches real workflows, audits performance against rubrics, and adapts remediation automatically — across web, mobile, and XR."
+        subtitle="A complete simulation platform purpose-built for healthcare training. Rubric-anchored scenarios, adaptive coaching, and cohort-level evidence — web, mobile, and XR ready."
         actions={
           <>
             <Link to="/contact" className="btn-primary">
-              Request a demo <ArrowRight className="h-4 w-4" />
+              Plan a pilot <ArrowRight size={16} />
             </Link>
-            <Link to="/solutions/healthcare" className="btn-secondary">
-              See solutions
+            <Link to="/roi" className="btn-secondary">
+              See ROI model
             </Link>
           </>
         }
       />
 
-      <Section
-        eyebrow="How it works"
-        title="Simple workflow, measurable outcomes"
-        subtitle="Designed to give your team a scenario to practice, then review results and feedback without rebuilding your evaluation process each time."
-      >
-        <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map(({ icon: Icon, title, body }) => (
-            <li key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/15">
-                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
+      {/* Core Features */}
+      <Section eyebrow="Core capabilities" title="Everything in one engine">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {coreFeatures.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="card">
+              <div className="w-10 h-10 rounded-xl bg-brand-gradient-soft flex items-center justify-center mb-4">
+                <Icon size={20} className="text-brand-cyan" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-brand-muted">{body}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
-
-      <Section
-        tone="muted"
-        eyebrow="What's inside"
-        title="The Encountive Engine"
-        subtitle="Adaptive clinical intelligence that turns real workflows into coached practice. Four modules, one engine, everything logged."
-      >
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {modules.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient text-white">
-                <Icon className="h-5 w-5" aria-hidden />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-brand-muted">{body}</p>
+              <h3 className="font-semibold text-white mb-2">{title}</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
-
-        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface-2 p-8 md:p-10">
-          <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-2xl">
-              <p className="eyebrow">XR-ready</p>
-              <h3 className="mt-3 text-2xl font-bold text-brand-ink">
-                Phone-based AR/VR for hands-on skills — when you're ready
-              </h3>
-              <p className="mt-3 text-brand-muted">
-                Start on web and mobile for reach. Plug in XR modules — with
-                mastery rules and telemetry — where immersion truly moves the
-                needle.
-              </p>
-            </div>
-            <Boxes className="h-16 w-16 text-brand-cyan" aria-hidden />
-          </div>
-        </div>
       </Section>
 
-      <Section
-        eyebrow="Workflows covered first"
-        title="Real healthcare moments, turned into coached practice"
-      >
-        <ul className="grid gap-3 md:grid-cols-2">
-          {workflows.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4"
-            >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
-              <span className="text-sm text-slate-300">{item}</span>
+      {/* XR */}
+      <Section eyebrow="XR-ready" title="Phone-based AR/VR for hands-on skills — when you're ready" tone="muted">
+        <p className="text-brand-muted text-lg leading-relaxed max-w-2xl mb-8">
+          Start on web and mobile for reach. Plug in XR modules — with mastery rules and telemetry — where immersion
+          truly moves the needle.
+        </p>
+        <ul className="space-y-3">
+          {xrCapabilities.map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <CheckCircle2 size={16} className="text-brand-cyan mt-1 shrink-0" />
+              <span className="text-brand-ink">{item}</span>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section
-        tone="muted"
-        eyebrow="Why this is different"
-        title="Built so practice is safe, auditable, and worth running again"
-      >
-        <div className="grid gap-5 md:grid-cols-2">
-          {differentiators.map((item) => (
-            <div key={item.title} className="card h-full">
-              <h3 className="text-lg font-semibold text-brand-ink">{item.title}</h3>
-              <p className="mt-2 text-sm text-brand-muted">{item.body}</p>
+      {/* Governance */}
+      <Section eyebrow="Governance & accessibility" title="Built for institutional deployment">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {governance.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="card">
+              <div className="w-10 h-10 rounded-xl bg-brand-gradient-soft flex items-center justify-center mb-4">
+                <Icon size={20} className="text-brand-cyan" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">{title}</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
-      </Section>
-
-      <Section
-        eyebrow="Compliance, safety & accessibility"
-        title="Designed for review and for humans"
-      >
-        <div className="grid gap-5 md:grid-cols-3">
-          <div className="card">
-            <h3 className="text-lg font-semibold text-brand-ink">
-              Instructional, non-clinical
-            </h3>
-            <p className="mt-2 text-sm text-brand-muted">
-              Content aligned to delegated duties and scope. No diagnosis or
-              treatment training.
-            </p>
-          </div>
-          <div className="card">
-            <h3 className="text-lg font-semibold text-brand-ink">Accessibility</h3>
-            <p className="mt-2 text-sm text-brand-muted">
-              Captions, transcripts, WCAG-compliant delivery, alt text, keyboard
-              navigation.
-            </p>
-          </div>
-          <div className="card">
-            <h3 className="text-lg font-semibold text-brand-ink">
-              CE-ready process templates
-            </h3>
-            <p className="mt-2 text-sm text-brand-muted">
-              For accredited providers (NCPD / Joint Accreditation) and
-              recordkeeping.
-            </p>
-          </div>
+        <div className="rounded-2xl border border-white/10 p-6 bg-brand-surface/30">
+          <p className="text-sm font-semibold text-brand-cyan mb-2 eyebrow">Accessibility</p>
+          <p className="text-brand-ink">
+            Captions, transcripts, WCAG-compliant delivery, alt text, and keyboard navigation — built in from the start.
+          </p>
         </div>
       </Section>
 
       <CtaBanner
-        title="Want to see a scenario → coaching → analytics walkthrough?"
-        subtitle="We'll tailor the demo to your workflows and share how we'd scope a pilot to your priorities."
-        primaryLabel="Request a demo"
-        secondaryLabel="Explore partnership"
+        title="Ready to see the engine in action?"
+        subtitle="We'll walk you through a live scenario, show you the coaching layer, and discuss how pilots are structured."
+        primaryLabel="Plan a pilot"
+        secondaryLabel="Contact us"
       />
     </>
   );

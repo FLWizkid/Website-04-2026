@@ -61,7 +61,7 @@ export default function Academic() {
   return (
     <>
       <PageHero
-        eyebrow="Solutions · Academic"
+        eyebrow="Academic"
         title={
           <>
             Better prepared graduates — with{" "}
@@ -72,7 +72,7 @@ export default function Academic() {
         actions={
           <>
             <Link to="/contact" className="btn-primary">
-              Request an academic demo <ArrowRight className="h-4 w-4" />
+              Request an academic demo <ArrowRight size={16} />
             </Link>
             <Link to="/roi" className="btn-secondary">
               See program outcomes
@@ -81,105 +81,81 @@ export default function Academic() {
         }
       />
 
-      <Section eyebrow="Who we serve" title="Designed around program realities">
-        <div className="grid gap-5 md:grid-cols-3">
+      {/* Segments */}
+      <Section eyebrow="Who we serve" title="Designed for your program type">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {segments.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="card h-full">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-cyan/15">
-                <Icon className="h-5 w-5 text-brand-cyan" aria-hidden />
+            <div key={title} className="card">
+              <div className="w-10 h-10 rounded-xl bg-brand-gradient-soft flex items-center justify-center mb-4">
+                <Icon size={20} className="text-brand-cyan" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-brand-muted">{body}</p>
+              <h3 className="font-semibold text-white mb-2">{title}</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section
-        tone="muted"
-        eyebrow="Program outcomes"
-        title="What Encountive is designed to deliver for programs"
-      >
-        <div className="grid gap-5 md:grid-cols-3">
+      {/* Outcomes */}
+      <Section eyebrow="Program outcomes" title="Measurable from day one" tone="muted">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {outcomes.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="card h-full">
-              <Icon className="h-6 w-6 text-brand-cyan" aria-hidden />
-              <h3 className="mt-4 text-lg font-semibold text-brand-ink">{title}</h3>
-              <p className="mt-2 text-sm text-brand-muted">{body}</p>
+            <div key={title} className="card">
+              <div className="w-10 h-10 rounded-xl bg-brand-gradient-soft flex items-center justify-center mb-4">
+                <Icon size={20} className="text-brand-cyan" />
+              </div>
+              <h3 className="font-semibold text-white mb-2">{title}</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
-
-        <div className="mt-10 rounded-3xl border border-white/10 bg-brand-surface-2 p-8 md:p-10">
-          <p className="eyebrow">Academic cohort example</p>
-          <h3 className="mt-3 text-2xl font-bold text-brand-ink">
-            3.88x ROI with{" "}
-            <span className="gradient-text">$122k in modeled benefit</span> for a 200-student cohort
-          </h3>
-          <p className="mt-3 max-w-2xl text-brand-muted">
-            Modeled reductions in faculty prep time, improved pass rates, and
-            cohort-level competency growth. Full assumptions on our ROI page.
-          </p>
-          <Link
-            to="/roi"
-            className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:text-brand-amber"
-          >
-            See the ROI breakdown <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
       </Section>
 
-      <Section
-        eyebrow="Proof of learning"
-        title="Objectives that map directly to your syllabus"
-      >
-        <ul className="grid gap-3 md:grid-cols-2">
+      {/* ROI Callout */}
+      <Section eyebrow="Academic cohort example" title="3.88x ROI with $122k in modeled benefit for a 200-student cohort">
+        <p className="text-brand-muted text-lg leading-relaxed max-w-2xl mb-6">
+          Modeled reductions in faculty prep time, improved pass rates, and cohort-level competency growth. Full
+          assumptions on our ROI page.
+        </p>
+        <Link to="/roi" className="btn-secondary">
+          See the ROI breakdown <ArrowRight size={16} />
+        </Link>
+      </Section>
+
+      {/* Sample Objectives */}
+      <Section eyebrow="Sample scenario objectives" title="What learners practice" tone="muted">
+        <ul className="space-y-3 mb-10">
           {objectives.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3 rounded-xl border border-white/10 bg-brand-surface-2 p-4"
-            >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-brand-cyan" />
-              <span className="text-sm text-slate-300">{item}</span>
+            <li key={item} className="flex items-start gap-3">
+              <CheckCircle2 size={16} className="text-brand-cyan mt-1 shrink-0" />
+              <span className="text-brand-ink">{item}</span>
             </li>
           ))}
         </ul>
-      </Section>
 
-      <Section
-        tone="muted"
-        eyebrow="Licensing approach"
-        title="Annual institutional licensing — scoped to your program"
-        subtitle="Pricing scales with learner volume and deployment scope. We start with pilots so programs can evaluate outcomes before committing to scale."
-      >
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="card">
-            <h3 className="text-lg font-semibold text-brand-ink">
-              Pilot-based entry
-            </h3>
-            <p className="mt-2 text-sm text-brand-muted">
-              Pilots with clear success criteria and conversion terms.
-              Faculty time saved, competency deltas, and outcomes briefs you can
-              share with your committee.
+            <h3 className="font-semibold text-white mb-2">Pilot-based entry</h3>
+            <p className="text-sm text-brand-muted leading-relaxed">
+              Pilots with clear success criteria and conversion terms. Faculty time saved, competency deltas, and
+              outcomes briefs you can share with your committee.
             </p>
           </div>
           <div className="card">
-            <h3 className="text-lg font-semibold text-brand-ink">
-              Drop-in accreditation support
-            </h3>
-            <p className="mt-2 text-sm text-brand-muted">
-              Objectives, time-on-task, assessment blueprints, evaluation
-              templates, and recordkeeping SOPs to streamline provider approval.
+            <h3 className="font-semibold text-white mb-2">Drop-in accreditation support</h3>
+            <p className="text-sm text-brand-muted leading-relaxed">
+              Objectives, time-on-task, assessment blueprints, evaluation templates, and recordkeeping SOPs to
+              streamline provider approval.
             </p>
           </div>
         </div>
       </Section>
 
       <CtaBanner
-        title="Bring Encountive into your program"
-        subtitle="Share your objectives and rubrics — we'll map scenarios, outline a pilot, and define the outcomes we'd measure together."
-        primaryLabel="Request academic demo"
-        secondaryLabel="Map my curriculum"
+        title="Ready to elevate your program outcomes?"
+        subtitle="Start with a scoped pilot aligned to your course objectives. We'll help you measure what matters."
+        primaryLabel="Request an academic demo"
+        secondaryLabel="Contact us"
       />
     </>
   );

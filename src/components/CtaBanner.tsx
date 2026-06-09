@@ -18,34 +18,18 @@ export default function CtaBanner({
   secondaryTo = "/contact",
 }: CtaBannerProps) {
   return (
-    <section className="py-16 md:py-24">
-      <div className="container-xl">
-        <div className="relative overflow-hidden rounded-3xl bg-brand-gradient p-10 md:p-14">
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage:
-                "radial-gradient(600px 200px at 20% 0%, rgba(255,255,255,0.4), transparent 60%), radial-gradient(500px 200px at 80% 100%, rgba(255,255,255,0.25), transparent 60%)",
-            }}
-          />
-          <div className="relative max-w-2xl text-white">
-            <h2 className="text-3xl font-bold md:text-4xl">{title}</h2>
-            <p className="mt-4 text-white/90 md:text-lg">{subtitle}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to={primaryTo}
-                className="btn bg-white text-brand-bg hover:bg-slate-100"
-              >
-                {primaryLabel}
-              </Link>
-              <Link
-                to={secondaryTo}
-                className="btn border border-white/60 text-white hover:bg-white/10"
-              >
-                {secondaryLabel}
-              </Link>
-            </div>
+    <section className="py-12 sm:py-16 md:py-20">
+      <div className="container-xl mx-auto">
+        <div className="relative rounded-3xl border border-brand-cyan/20 overflow-hidden p-6 sm:p-10 md:p-16 text-center"
+          style={{
+            background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.12), transparent 70%), linear-gradient(180deg, #131A2E 0%, #0a0f1f 100%)",
+          }}
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold mb-4 max-w-2xl mx-auto">{title}</h2>
+          <p className="text-brand-muted text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">{subtitle}</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link to={primaryTo} className="btn-primary min-h-[48px]">{primaryLabel}</Link>
+            <Link to={secondaryTo} className="btn-secondary min-h-[48px]">{secondaryLabel}</Link>
           </div>
         </div>
       </div>
