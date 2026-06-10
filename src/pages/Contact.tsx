@@ -50,19 +50,22 @@ export default function Contact() {
     setStatus("submitting");
     setErrorMsg(null);
 
-    const { error } = await supabase.from("contact_submissions").insert({
-      name: form.name,
-      title: form.title || null,
-      organization: form.organization || null,
-      email: form.email,
-      phone: form.phone || null,
-      interest: form.interest || null,
-      message: form.message,
+    const { data, error } = await supabase.functions.invoke("send-contact-email", {
+      body: {
+        name: form.name,
+        title: form.title,
+        organization: form.organization,
+        email: form.email,
+        phone: form.phone,
+        interest: form.interest,
+        message: form.message,
+        website: form.website, // honeypot
+      },
     });
 
-    if (error) {
+    if (error || (data && (data as { error?: string }).error)) {
       setStatus("error");
-      setErrorMsg(error.message);
+      setErrorMsg((data as { error?: string })?.error ?? error?.message ?? null);
     } else {
       setStatus("success");
       setForm(INITIAL);
